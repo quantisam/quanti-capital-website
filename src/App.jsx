@@ -51,7 +51,7 @@ export default function QuantiCapitalComplete() {
       link: "#hedging",
       highlights: [
         "Partnership with FCMs for comprehensive hedging solutions",
-        "Price risk protection for buyers and sellers",
+        "Price risk mitigation for buyers and sellers",
         "Market volatility management strategies",
         "Customized hedging programs for critical materials"
       ]
