@@ -485,13 +485,13 @@ export default function QuantiCapitalComplete() {
                 Partnering with FCMs to manage price risk.
               </h3>
               <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
-                We understand critical minerals and rare earth markets face significant price volatility. We acknowledge that these markets are illiquid and some do not exists. That is why Quanti partners with Futures Commission Merchants (FCMs) to provide comprehensive hedging solutions that help both buyers and sellers manage price risk and market uncertainties.
+                We understand critical minerals and rare earth markets face significant price volatility. Many of these markets are illiquid and some do not yet exist. That is why Quanti partners with Futures Commission Merchants (FCMs) to provide comprehensive hedging solutions that help both buyers and sellers manage price risk and market uncertainties.
               </p>
 
               <div className="space-y-6">
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">FCM Partnerships</h4>
-                  <p className="text-sm text-zinc-600 font-light">Working with established Futures Commission Merchants to access commodity markets and hedging instruments for critical minerals and rare earth's.</p>
+                  <p className="text-sm text-zinc-600 font-light">Working with established Futures Commission Merchants to access commodity markets and hedging instruments for critical minerals and rare earths.</p>
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Price Protection</h4>
