@@ -106,7 +106,7 @@ export default function QuantiCapitalComplete() {
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-light leading-tight mb-8 tracking-tight">
-              Integrating American Resources Into Global Supply Chains
+              Integrating Western Resources Into Global Supply Chains
             </h1>
             <p className="text-xl md:text-2xl text-zinc-600 font-light leading-relaxed max-w-3xl">
               We create diverse sourcing networks that integrate Western markets into global supply chains, alleviate mine offtake challenges, and provide gateways to international markets beyond government programs—building balanced, sustainable demand for critical materials and rare earths.
