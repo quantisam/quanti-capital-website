@@ -106,7 +106,7 @@ export default function QuantiCapitalComplete() {
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-light leading-tight mb-8 tracking-tight">
-              Reinventing Critical Materials Trade
+              Integrating American Resources Into Global Supply Chains
             </h1>
             <p className="text-xl md:text-2xl text-zinc-600 font-light leading-relaxed max-w-3xl">
               We create diverse sourcing networks that integrate Western markets into global supply chains, alleviate mine offtake challenges, and provide gateways to international markets beyond government programs—building balanced, sustainable demand for critical materials and rare earths.
@@ -138,8 +138,8 @@ export default function QuantiCapitalComplete() {
             </div>
             <div>
               <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Philosophy</div>
-              <div className="text-4xl font-light mb-2">Mine Control</div>
-              <div className="text-sm text-zinc-600 font-light">Giving suppliers control, diversifying buyer risks</div>
+              <div className="text-4xl font-light mb-2">Strengthening America's Position</div>
+              <div className="text-sm text-zinc-600 font-light">Creating balanced, secure supply chains for producers and end users.</div>
             </div>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default function QuantiCapitalComplete() {
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">Alleviating Mine Offtake Challenges</h4>
               <p className="text-zinc-300 font-light leading-relaxed mb-6">
-                Mines and processing plants want to run and expand operations, not locate buyers. We increase the value of these assets by building pipelines of qualified, long-term demand from OEMs, magnet makers, refiners, and strategic buyers – by helping translate technical product into tangible offtake.
+                Mines and processing plants want to run and expand operations, not locate end-users. We increase the value of these assets by building pipelines of qualified, long-term demand from OEMs, magnet makers, refiners, and strategic buyers – by helping translate technical product into tangible offtake.
               </p>
             </div>
 
@@ -213,7 +213,7 @@ export default function QuantiCapitalComplete() {
           <div className="mb-16">
             <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Our Divisions</h2>
             <h3 className="text-4xl md:text-5xl font-light leading-tight max-w-3xl">
-              Four specialized divisions working together to serve the global critical materials market.
+              Four divisions working together to serve the global critical materials market.
             </h3>
           </div>
 
@@ -352,7 +352,7 @@ export default function QuantiCapitalComplete() {
               Moving critical materials with complete transparency and traceability.
             </h3>
             <p className="text-xl text-zinc-300 font-light leading-relaxed max-w-3xl">
-              We provide specialized freight brokerage for critical materials transportation and work with any traceability system the parties prefer—integrating mines, software partners, data analytics firms, and buyers to track materials from source to destination.
+              We provide specialized freight brokerage for critical materials transportation and work with any traceability system the parties prefer—integrating mines, processing facilities, software partners, and end-users to track materials from source to destination.
             </p>
           </div>
 
@@ -423,7 +423,7 @@ export default function QuantiCapitalComplete() {
                 Traceability Partnership Ecosystem
               </h3>
               <p className="text-xl text-zinc-300 font-light leading-relaxed max-w-3xl">
-                Complete supply chain traceability requires coordination across multiple parties. We facilitate partnerships between mines, technology providers, analytics firms, and buyers to create transparent, compliant supply chains.
+                Complete supply chain traceability requires coordination across multiple parties. We facilitate partnerships between mines, processing, technology providers, and end-users to create transparent, compliant supply chains.
               </p>
             </div>
 
@@ -435,19 +435,19 @@ export default function QuantiCapitalComplete() {
                 </p>
               </div>
               <div className="bg-zinc-900 p-6 border border-zinc-800">
+                <div className="text-lg font-light mb-3">Processing Facilities</div>
+                <p className="text-sm text-zinc-400 font-light">
+                  Clear communication and transparency in any change of the material
+                </p>
+              </div>
+              <div className="bg-zinc-900 p-6 border border-zinc-800">
                 <div className="text-lg font-light mb-3">Software Partners</div>
                 <p className="text-sm text-zinc-400 font-light">
                   Digital tracking platforms for real-time material movement and chain of custody
                 </p>
               </div>
               <div className="bg-zinc-900 p-6 border border-zinc-800">
-                <div className="text-lg font-light mb-3">Data Analytics</div>
-                <p className="text-sm text-zinc-400 font-light">
-                  Advanced analytics for compliance reporting and supply chain insights
-                </p>
-              </div>
-              <div className="bg-zinc-900 p-6 border border-zinc-800">
-                <div className="text-lg font-light mb-3">Buyers</div>
+                <div className="text-lg font-light mb-3">End-Users</div>
                 <p className="text-sm text-zinc-400 font-light">
                   Complete visibility into material provenance and compliance verification
                 </p>
@@ -463,7 +463,7 @@ export default function QuantiCapitalComplete() {
                 </div>
                 <div>
                   <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Supply Chain Integrity</div>
-                  <p className="text-sm text-zinc-300 font-light">Preventing fraud, ensuring authenticity, and maintaining quality throughout the chain</p>
+                  <p className="text-sm text-zinc-300 font-light">Preventing fraud, ensuring authenticity, and maintaining quality throughout the chain.</p>
                 </div>
                 <div>
                   <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Market Access</div>
@@ -482,24 +482,24 @@ export default function QuantiCapitalComplete() {
             <div>
               <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Hedging</h2>
               <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-                Partnering with FCMs to manage price risk for buyers and sellers.
+                Partnering with FCMs to manage price risk.
               </h3>
               <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
-                Critical materials markets face significant price volatility. We partner with Futures Commission Merchants (FCMs) to provide comprehensive hedging solutions that help both buyers and sellers manage price risk and market uncertainties.
+                We understand critical minerals and rare earth markets face significant price volatility. We acknowledge that these markets are illiquid and some do not exists. That is why Quanti partners with Futures Commission Merchants (FCMs) to provide comprehensive hedging solutions that help both buyers and sellers manage price risk and market uncertainties.
               </p>
 
               <div className="space-y-6">
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">FCM Partnerships</h4>
-                  <p className="text-sm text-zinc-600 font-light">Working with established Futures Commission Merchants to access commodity markets and hedging instruments for critical materials.</p>
+                  <p className="text-sm text-zinc-600 font-light">Working with established Futures Commission Merchants to access commodity markets and hedging instruments for critical minerals and rare earth's.</p>
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Price Protection</h4>
-                  <p className="text-sm text-zinc-600 font-light">Helping mines lock in favorable prices for future production and buyers secure predictable costs for material inputs.</p>
+                  <p className="text-sm text-zinc-600 font-light">Helping members in the supply chain lock in favorable prices for future production and helping secure predictable costs for material inputs.</p>
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Volatility Management</h4>
-                  <p className="text-sm text-zinc-600 font-light">Strategies to manage market swings and reduce exposure to dramatic price fluctuations in critical materials markets.</p>
+                  <p className="text-sm text-zinc-600 font-light">Strategies to manage market swings and reduce exposure to dramatic price fluctuations in critical mineral markets.</p>
                 </div>
               </div>
             </div>
