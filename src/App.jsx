@@ -1,4 +1,4 @@
-mport React from 'react';
+import React from 'react';
 import { ArrowRight, ChevronDown, Shield, Globe, TrendingUp, Link, Truck, FileCheck, BarChart3, Boxes, MapPin, Package, Anchor } from 'lucide-react';
 
 // Quanti Capital Symbol Component
