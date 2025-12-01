@@ -646,15 +646,18 @@ export default function QuantiCapitalComplete() {
               <div className="space-y-6">
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Western Market Integration</h4>
-                  <p className="text-sm text-zinc-600 font-light">Creating pathways for European, Asian, and American manufacturers to access critical materials through transparent, traceable supply chains.</p>
+                  <p className="text-sm text-zinc-600 font-light">Creating pathways for European, Asian, and American manufacturers to access critical materials through transparent, traceable supply chains.
+                  </p>
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Local Partnerships</h4>
-                  <p className="text-sm text-zinc-600 font-light">On-the-ground presence and relationships in key African mining regions, ensuring quality, compliance, and sustainable practices.</p>
+                  <p className="text-sm text-zinc-600 font-light">On-the-ground presence and relationships in key African mining regions, ensuring quality, compliance, and sustainable practices.
+                  </p>
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Cross-Continental Networks</h4>
-                  <p className="text-sm text-zinc-600 font-light">Connecting mines to manufacturers across five continents, creating resilient supply chains that withstand geopolitical uncertainties.</p>
+                  <p className="text-sm text-zinc-600 font-light">Connecting mines to manufacturers across five continents, creating resilient supply chains that withstand geopolitical uncertainties.
+                  </p>
                 </div>
               </div>
             </div>
