@@ -641,6 +641,7 @@ export default function QuantiCapitalComplete() {
               </h3>
               <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
                 With operations spanning Europe, Asia, Africa, and the Americas, we integrate Western markets into critical material supply chains and visa versa.
+              </p>
 
               <div className="space-y-6">
                 <div className="border-l-2 border-zinc-300 pl-6">
