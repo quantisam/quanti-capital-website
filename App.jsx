@@ -71,7 +71,7 @@ export default function QuantiCapitalComplete() {
         "Operations across Europe, Asia, and the Americas",
         "Deep expertise in African markets (Zambia, Angola, DRC, Tanzania, South Africa)",
         "Integrating Western markets into supply chains",
-        "Connecting global demand with African resources"
+        "Connecting global demand with alternative resources"
       ]
     }
   ];
@@ -156,10 +156,11 @@ export default function QuantiCapitalComplete() {
           <div className="max-w-4xl mb-16">
             <h2 className="text-sm text-zinc-400 uppercase tracking-wider mb-6">Why Quanti Capital</h2>
             <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-              A strategic trade company focused on connecting global buyers and suppliers of critical minerals and rare earths.
+              We offer strategic trade platform for critical minerals and rare earths. 
             </h3>
             <p className="text-xl text-zinc-300 font-light leading-relaxed">
-              We understand that mines need more than government subsidies and contractor purchases. While these provide a foundation, sustainable growth requires access to international markets and the private sector. We provide that gateway—integrating Western markets into today's critical material supply chains while preserving supplier control.
+              Government programs and contractors are important, but they are not enough. Mines need offtake and manufacturers need diversified supply. Quanti sits in the
+              middle: we structure relationships, line up compliant counterparties in friendly countries, and create a private-sector demand engine around strategic materials.
             </p>
           </div>
 
@@ -167,21 +168,21 @@ export default function QuantiCapitalComplete() {
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">Alleviating Mine Offtake Challenges</h4>
               <p className="text-zinc-300 font-light leading-relaxed mb-6">
-                Mines face the challenge of securing consistent offtake agreements. Government programs and contractors help, but they're not enough. We open doors to commercial buyers in friendly countries—EV manufacturers, electronics companies, defense contractors—creating sustainable, market-driven demand.
-              </p>
+                Mines and processing plants want to run and expand operations, not locate buyers. We increase the value of these assets by building pipelines of qualified, long-term demand from OEMs, magnet makers, refiners, and strategic buyers – and by helping
+                translate technical product into tangible offtake.
             </div>
 
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">Integrating Western Markets</h4>
               <p className="text-zinc-300 font-light leading-relaxed mb-6">
-                The Western world needs reliable access to critical materials. We bridge the gap between mines and manufacturers creating transparent, traceable supply chains.
+                The Western world needs reliable access to critical materials. We bridge the gap between mines, processing facilities and manufacturers creating transparent, traceable supply chains.
               </p>
             </div>
 
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">For Suppliers: Market Access & Control</h4>
               <p className="text-zinc-300 font-light leading-relaxed">
-                We provide gateways to international markets while ensuring you maintain control over operations. Access private sector buyers across multiple regions and industries, reducing dependency on government programs.
+                We provide gateways to international markets while ensuring you maintain control over operations. We give access to private sector buyers across multiple regions and industries, reducing dependency on government programs.
               </p>
             </div>
 
