@@ -59,13 +59,13 @@ export default function QuantiCapitalComplete() {
     {
       name: "Markets",
       tagline: "Global Operations",
-      description: "Connecting global markets across Europe, Asia, and the Americas to critical materials sources. With strong operations in Africa—including Zambia, Angola, DRC, Tanzania, and South Africa—we integrate the Western world into today's critical material supply chains.",
+      description: "Connecting global markets across Europe, Asia, Africa and the Americas to critical mineral sources.",
       icon: MapPin,
       link: "#markets",
       highlights: [
         "Global footprint across multiple continents",
         "Operations in African markets such as Zambia, Angola, DRC, Tanzania, South Africa",
-        "Integrating American European and African markets into supply chains",
+        "Integrating American, European and African markets into supply chains",
         "Connecting global demand with alternative resources"
       ]
     }
