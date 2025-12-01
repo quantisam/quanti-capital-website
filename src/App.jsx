@@ -18,7 +18,7 @@ export default function QuantiCapitalComplete() {
 
   const divisions = [
     {
-      name: "Quanti",
+      name: "Brokerage",
       tagline: "Services",
       description: "Many new mines and processing plants are coming online, but demand must match supply. Quanti helps balance the market by locating offtake, integrating suppliers and buyers, while connecting only compliant counterparties in friendly countries.",
       icon: Link,
