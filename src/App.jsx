@@ -138,8 +138,8 @@ export default function QuantiCapitalComplete() {
             </div>
             <div>
               <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Mission</div>
-              <div className="text-4xl font-light mb-2">Strengthen the West's Position</div>
-              <div className="text-sm text-zinc-600 font-light">Our goal is to create balanced, and secure supply chains for producers and end users.</div>
+              <div className="text-4xl font-light mb-2">Strengthening the Supply Chains of the Future</div>
+              <div className="text-sm text-zinc-600 font-light">We balance the supply chains of tomorrow by integrating American resources into global markets.</div>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ export default function QuantiCapitalComplete() {
             </div>
 
             <div className="border-l-2 border-zinc-700 pl-8">
-              <h4 className="text-2xl font-light mb-4">Integrating Western Markets</h4>
+              <h4 className="text-2xl font-light mb-4">Integrating American Resources</h4>
               <p className="text-zinc-300 font-light leading-relaxed mb-6">
                 The Western world needs secure access to critical materials, but mines also need help integrating those materials into established downstream supply chains. We close this gap by connecting mines, processors, and manufacturers through transparent, traceable, and compliant pathways.
               </p>
@@ -196,7 +196,7 @@ export default function QuantiCapitalComplete() {
               </div>
               <div>
                 <div className="text-5xl font-light mb-3">Connected</div>
-                <div className="text-sm text-zinc-500 font-light">Integrating Western markets into global supply chains</div>
+                <div className="text-sm text-zinc-500 font-light">Integrating American Resources into global supply chains</div>
               </div>
               <div>
                 <div className="text-5xl font-light mb-3">Sustainable</div>
@@ -628,7 +628,7 @@ export default function QuantiCapitalComplete() {
 
                 <div className="pt-6 border-t border-zinc-200">
                   <div className="text-sm text-zinc-600 font-light">
-                    <strong className="text-black font-medium">Integrating Western Markets:</strong> We connect Western mineral resources with manufacturing companies, creating transparent supply chains that serve the private sector and reduce dependency on single-source suppliers.
+                    <strong className="text-black font-medium">Integrating Western Markets:</strong> We connect American mineral resources with manufacturing companies, creating transparent supply chains that serve the private sector and reduce dependency on single-source suppliers.
                   </div>
                 </div>
               </div>
