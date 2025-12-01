@@ -137,8 +137,8 @@ export default function QuantiCapitalComplete() {
               <div className="text-sm text-zinc-600 font-light">Connecting mines to manufacturers worldwide</div>
             </div>
             <div>
-              <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Goal</div>
-              <div className="text-4xl font-light mb-2">Strengthen America's Position</div>
+              <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Mission</div>
+              <div className="text-4xl font-light mb-2">Strengthen the West's Position</div>
               <div className="text-sm text-zinc-600 font-light">Our goal is to create balanced, and secure supply chains for producers and end users.</div>
             </div>
           </div>
