@@ -22,28 +22,31 @@ export default function QuantiCapitalComplete() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const divisions = [
+   
+    
+    
     {
       name: "Quanti",
       tagline: "Services",
-      description: "We alleviate offtake challenges from mines by providing a gateway to international markets in friendly countries and the private sector. While government subsidies and contractors provide a foundation, we open doors to diversified commercial demand beyond government programs.",
+      description: "Many new mines and processing plants are coming online, but demand must match supply. Quanti helps balance the market by locating offtake, integrating suppliers and buyers, while connecting only compliant counterparties in friendly countries.",
       icon: Link,
-      link: "#brokerage",
+      link: "#services",
       highlights: [
-        "Gateway to domestic and international markets beyond government programs",
-        "Access to private sector buyers across friendly nations",
-        "Alleviating mine offtake challenges through diversified demand",
-        "Integrating Western markets into critical material supply chains"
+        "Identify and secure diversified offtake for mines and processing facilities",
+        "Connect producers with OEMs, refiners, and private-sector buyers",
+        "Balance supply with real commercial demand as new projects come online",
+        "Integrate compliant, friendly-country partners into critical material supply chains"
       ]
     },
     {
       name: "Logistics",
       tagline: "Freight & Traceability",
-      description: "Specialized logistics solutions with flexible traceability integration. We work with any traceability application the mine prefers, partnering with software companies, data analytics firms, and buyers to track materials from source to destination.",
+      description: "Specialized logistics solutions with flexible traceability integration. We work with any traceability application the parties prefer, partnering with software companies, data analytics firms, and buyers to track materials from source to destination.",
       icon: Truck,
       link: "#logistics",
       highlights: [
         "Freight brokerage for critical materials transportation",
-        "Integration with mine's preferred traceability systems",
+        "Integration with preferred traceability systems",
         "Flexible technology partnerships for supply chain visibility",
         "Compliance documentation and chain of custody"
       ]
@@ -68,9 +71,9 @@ export default function QuantiCapitalComplete() {
       icon: MapPin,
       link: "#markets",
       highlights: [
-        "Operations across Europe, Asia, and the Americas",
-        "Deep expertise in African markets (Zambia, Angola, DRC, Tanzania, South Africa)",
-        "Integrating Western markets into supply chains",
+        "Global footprint across mutliple continents",
+        "Operations in African markets such as Zambia, Angola, DRC, Tanzania, South Africa",
+        "Integrating American European and African markets into supply chains",
         "Connecting global demand with alternative resources"
       ]
     }
@@ -114,7 +117,7 @@ export default function QuantiCapitalComplete() {
               Reinventing Critical Materials Trade
             </h1>
             <p className="text-xl md:text-2xl text-zinc-600 font-light leading-relaxed max-w-3xl">
-              We create diverse sourcing networks that integrate Western markets into global supply chains, alleviate mine offtake challenges, and provide gateways to international markets beyond government programs—building balanced, sustainable demand for critical materials.
+              We create diverse sourcing networks that integrate Western markets into global supply chains, alleviate mine offtake challenges, and provide gateways to international markets beyond government programs—building balanced, sustainable demand for critical materials and rare earths.
             </p>
           </div>
           
@@ -156,7 +159,7 @@ export default function QuantiCapitalComplete() {
           <div className="max-w-4xl mb-16">
             <h2 className="text-sm text-zinc-400 uppercase tracking-wider mb-6">Why Quanti</h2>
             <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-              We offer strategic trade platform for critical minerals and rare earths. 
+              We offer services for companies in the critical mineral and rare earth space.
             </h3>
             <p className="text-xl text-zinc-300 font-light leading-relaxed">
               Government programs and contractors are important, but they are not enough. Mines need offtake and manufacturers need diversified supply. Quanti sits in the
@@ -168,28 +171,28 @@ export default function QuantiCapitalComplete() {
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">Alleviating Mine Offtake Challenges</h4>
               <p className="text-zinc-300 font-light leading-relaxed mb-6">
-                Mines and processing plants want to run and expand operations, not locate buyers. We increase the value of these assets by building pipelines of qualified, long-term demand from OEMs, magnet makers, refiners, and strategic buyers – and by helping
+                Mines and processing plants want to run and expand operations, not locate buyers. We increase the value of these assets by building pipelines of qualified, long-term demand from OEMs, magnet makers, refiners, and strategic buyers – by helping
                 translate technical product into tangible offtake.
             </div>
 
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">Integrating Western Markets</h4>
               <p className="text-zinc-300 font-light leading-relaxed mb-6">
-                The Western world needs reliable access to critical materials. We bridge the gap between mines, processing facilities and manufacturers creating transparent, traceable supply chains.
+                The Western world needs secure access to critical materials, but mines also need help integrating those materials into established downstream supply chains. We close this gap by connecting mines, processors, and manufacturers through transparent, traceable, and compliant pathways.
               </p>
             </div>
 
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">For Suppliers: Market Access & Control</h4>
               <p className="text-zinc-300 font-light leading-relaxed">
-                We provide gateways to international markets while ensuring you maintain control over operations. We give access to private sector buyers across multiple regions and industries, reducing dependency on government programs.
+                We provide gateways to international markets while ensuring you maintain control over operations. We give access to private sector buyers across multiple regions and industries, reducing sole dependency on government programs.
               </p>
             </div>
 
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">For Buyers: Diversified Supply</h4>
               <p className="text-zinc-300 font-light leading-relaxed">
-                Access verified sources across friendly nations. Diversify your critical mineral and rare earth element supply, reducing concentration risk in an increasingly complex geopolitical landscape.
+                Access verified sources globally. Diversify your critical mineral and rare earth element supply, reducing concentration risk in an increasingly complex geopolitical landscape.
               </p>
             </div>
           </div>
@@ -274,7 +277,7 @@ export default function QuantiCapitalComplete() {
                 <div className="space-y-6 mb-8">
                   <div>
                     <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Regional Focus</div>
-                    <div className="font-light mb-4">Connecting three major markets:</div>
+                    <div className="font-light mb-4">Connecting four major markets:</div>
                     <ul className="space-y-2 text-sm text-zinc-600">
                       <li className="flex items-start">
                         <span className="text-zinc-400 mr-2">•</span>
@@ -287,6 +290,10 @@ export default function QuantiCapitalComplete() {
                       <li className="flex items-start">
                         <span className="text-zinc-400 mr-2">•</span>
                         <span className="font-light"><strong>Americas:</strong> Defense, aerospace, clean energy sectors</span>
+                      </li>
+                       <li className="flex items-start">
+                        <span className="text-zinc-400 mr-2">•</span>
+                        <span className="font-light"><strong>Africa:</strong> Telecommunications, Healthcare, emerging sectors</span>
                       </li>
                     </ul>
                   </div>
@@ -321,7 +328,7 @@ export default function QuantiCapitalComplete() {
 
                 <div className="pt-6 border-t border-zinc-200">
                   <div className="text-sm text-zinc-600 font-light">
-                    <strong className="text-black font-medium">Integrating Western Markets:</strong> We connect African mineral resources with Western buyers, creating transparent supply chains that serve the private sector and reduce dependency on single-source suppliers.
+                    <strong className="text-black font-medium">Integrating Western Markets:</strong> We connect Western mineral resources with manufacturing companies, creating transparent supply chains that serve the private sector and reduce dependency on single-source suppliers.
                   </div>
                 </div>
               </div>
@@ -333,7 +340,7 @@ export default function QuantiCapitalComplete() {
                 Connecting global markets to Western resources.
               </h3>
               <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
-                With operations spanning Europe, Asia, and the Americas, we integrate Western markets into critical material supply chains. Our deep expertise in African mining regions—particularly Zambia, Angola, DRC, Tanzania, and South Africa—positions us to connect global demand with reliable supply.
+                With operations spanning Europe, Asia, Africa, and the Americas, we integrate Western markets into critical material supply chains. Our deep expertise in African mining regions—particularly Zambia, Angola, DRC, Tanzania, and South Africa—positions us to connect global demand with reliable supply.
               </p>
 
               <div className="space-y-6">
