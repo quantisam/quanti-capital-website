@@ -653,8 +653,7 @@ export default function QuantiCapitalComplete() {
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Cross-Continental Networks</h4>
-                  <p className="text-sm text-zinc-600 font-light">Connecting mines to manufacturers across five continents, creating resilient supply chains that withstand geopolitical uncertainties.
-                  </p>
+                  <p className="text-sm text-zinc-600 font-light">Connecting mines to manufacturers across five continents, creating resilient supply chains that withstand geopolitical uncertainties.</p>
                 </div>
               </div>
             </div>
