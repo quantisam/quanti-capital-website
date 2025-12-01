@@ -262,7 +262,7 @@ export default function QuantiCapitalComplete() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Our Services</h2>
+              <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Brokerage Services</h2>
               <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
                 Balancing supply and demand in critical markets.
               </h3>
