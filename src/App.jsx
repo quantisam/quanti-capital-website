@@ -137,9 +137,9 @@ export default function QuantiCapitalComplete() {
               <div className="text-sm text-zinc-600 font-light">Connecting mines to manufacturers worldwide</div>
             </div>
             <div>
-              <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Philosophy</div>
-              <div className="text-4xl font-light mb-2">Strengthening America's Position</div>
-              <div className="text-sm text-zinc-600 font-light">Creating balanced, secure supply chains for producers and end users.</div>
+              <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Goal</div>
+              <div className="text-4xl font-light mb-2">Strengthen America's Position</div>
+              <div className="text-sm text-zinc-600 font-light">Our goal is to create balanced, and secure supply chains for producers and end users.</div>
             </div>
           </div>
         </div>
@@ -262,18 +262,18 @@ export default function QuantiCapitalComplete() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Quanti Services</h2>
+              <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Our Services</h2>
               <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-                Balancing supply and demand in critical materials markets.
+                Balancing supply and demand in critical markets.
               </h3>
               <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
-                As new mines and processing plants come online, matching demand with supply becomes critical. We help balance the market by identifying offtake opportunities, integrating suppliers with qualified buyers, and ensuring all counterparties meet compliance standards in friendly countries.
+                As new mines and processing plants come online, matching demand with supply becomes critical. We help balance the market by identifying offtake opportunities, integrating suppliers with qualified end-users, and ensuring all counterparties meet compliance standards in United States friendly countries.
               </p>
 
               <div className="space-y-6">
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Diversified Offtake Solutions</h4>
-                  <p className="text-sm text-zinc-600 font-light">Securing multiple offtake agreements across different buyers, regions, and industries to create stable, long-term demand for mine production.</p>
+                  <p className="text-sm text-zinc-600 font-light">Securing multiple offtake agreements across different end-users, regions, and industries to create stable, long-term demand for mine production.</p>
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Private Sector Integration</h4>
@@ -288,7 +288,7 @@ export default function QuantiCapitalComplete() {
 
             <div>
               <div className="bg-zinc-50 border border-zinc-200 p-8 mb-8">
-                <h4 className="text-xl font-light mb-6">Our Brokerage Process</h4>
+                <h4 className="text-xl font-light mb-6">Our Process</h4>
                 <div className="space-y-6">
                   <div className="flex items-start">
                     <div className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mr-4 font-light">1</div>
@@ -608,7 +608,7 @@ export default function QuantiCapitalComplete() {
                       </li>
                       <li className="flex items-start">
                         <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>Angola:</strong> Emerging critical minerals</span>
+                        <span className="font-light"><strong>Angola:</strong> Emerging logistics center hub</span>
                       </li>
                       <li className="flex items-start">
                         <span className="text-zinc-400 mr-2">•</span>
@@ -640,8 +640,7 @@ export default function QuantiCapitalComplete() {
                 Connecting global markets to Western resources.
               </h3>
               <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
-                With operations spanning Europe, Asia, Africa, and the Americas, we integrate Western markets into critical material supply chains. Our deep expertise in African mining regions—particularly Zambia, Angola, DRC, Tanzania, and South Africa—positions us to connect global demand with reliable supply.
-              </p>
+                With operations spanning Europe, Asia, Africa, and the Americas, we integrate Western markets into critical material supply chains and visa versa.
 
               <div className="space-y-6">
                 <div className="border-l-2 border-zinc-300 pl-6">
@@ -668,7 +667,7 @@ export default function QuantiCapitalComplete() {
           <div className="mb-16">
             <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Market-Driven Demand</h2>
             <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8 max-w-3xl">
-              Beyond government programs: Creating commercial demand from private sector buyers.
+              Creating more demand past the government programs.
             </h3>
             <p className="text-xl text-zinc-600 font-light leading-relaxed max-w-3xl">
               Government stockpile programs and contractor purchases are important, but mines need sustainable revenue from commercial buyers. We connect suppliers directly with manufacturers who need critical materials for actual production.
