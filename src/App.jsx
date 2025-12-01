@@ -106,10 +106,10 @@ export default function QuantiCapitalComplete() {
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl">
             <h1 className="text-5xl md:text-7xl font-light leading-tight mb-8 tracking-tight">
-              Integrating Western Resources Into Global Supply Chains
+              Integrating Western resources into global supply chains
             </h1>
             <p className="text-xl md:text-2xl text-zinc-600 font-light leading-relaxed max-w-3xl">
-              We create diverse sourcing networks that integrate Western markets into global supply chains, alleviate mine offtake challenges, and provide gateways to international markets beyond government programs—building balanced, sustainable demand for critical materials and rare earths.
+              We create diverse sourcing networks that integrate Western resources into global supply chains, alleviate offtake challenges, and provide gateways to international markets beyond government programs—building balanced, sustainable demand for critical minerals and rare earths.
             </p>
           </div>
           
@@ -154,7 +154,7 @@ export default function QuantiCapitalComplete() {
               We offer services for companies in the critical mineral and rare earth space.
             </h3>
             <p className="text-xl text-zinc-300 font-light leading-relaxed">
-              Government programs and contractors are important, but they are not enough. Mines need offtake and manufacturers need diversified supply. Quanti sits in the middle: we structure relationships, line up compliant counterparties in friendly countries, and create a private-sector demand engine around strategic materials.
+              Government programs and contractors are important, but they are not enough. Mines need offtake and manufacturers require diversified supply. Quanti sits in the middle: we structure relationships, line up compliant counterparties in friendly countries, and create a private-sector demand engine around strategic materials.
             </p>
           </div>
 
