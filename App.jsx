@@ -29,7 +29,7 @@ export default function QuantiCapitalComplete() {
       icon: Link,
       link: "#brokerage",
       highlights: [
-        "Gateway to international markets beyond government programs",
+        "Gateway to international & domestic markets beyond government programs",
         "Access to private sector buyers across friendly nations",
         "Alleviating mine offtake challenges through diversified demand",
         "Integrating Western markets into critical material supply chains"
@@ -174,7 +174,7 @@ export default function QuantiCapitalComplete() {
             <div className="border-l-2 border-zinc-700 pl-8">
               <h4 className="text-2xl font-light mb-4">Integrating Western Markets</h4>
               <p className="text-zinc-300 font-light leading-relaxed mb-6">
-                The Western world needs reliable access to critical materials. We bridge the gap between African mines and Western buyers, creating transparent, traceable supply chains that serve the private sector—from European manufacturers to American tech companies.
+                The Western world needs reliable access to critical materials. We bridge the gap between mines and manufacturers creating transparent, traceable supply chains.
               </p>
             </div>
 
