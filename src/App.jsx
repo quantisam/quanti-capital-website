@@ -819,10 +819,10 @@ export default function QuantiCapitalComplete() {
       <section id="contact" className="py-24 px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-            Ready to connect with global critical materials markets?
+            Ready to integrate into global markets?
           </h2>
           <p className="text-xl text-zinc-600 font-light mb-12">
-            Whether you're a mine seeking market access or a buyer looking for reliable sources, our integrated platform can support your critical materials needs.
+            Whether you're a mine seeking market access or a buyer looking for reliable sources, our integrated platform can support your critical mineral needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
