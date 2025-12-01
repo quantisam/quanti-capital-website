@@ -23,13 +23,13 @@ export default function QuantiCapitalComplete() {
 
   const divisions = [
     {
-      name: "Quanti Capital",
-      tagline: "Brokerage Services",
+      name: "Quanti",
+      tagline: "Services",
       description: "We alleviate offtake challenges from mines by providing a gateway to international markets in friendly countries and the private sector. While government subsidies and contractors provide a foundation, we open doors to diversified commercial demand beyond government programs.",
       icon: Link,
       link: "#brokerage",
       highlights: [
-        "Gateway to international & domestic markets beyond government programs",
+        "Gateway to domestic and international markets beyond government programs",
         "Access to private sector buyers across friendly nations",
         "Alleviating mine offtake challenges through diversified demand",
         "Integrating Western markets into critical material supply chains"
@@ -150,11 +150,11 @@ export default function QuantiCapitalComplete() {
         </div>
       </section>
 
-      {/* Why Quanti Capital Section */}
+      {/* Why Quanti Section */}
       <section className="py-24 px-6 lg:px-12 bg-black text-white">
         <div className="max-w-7xl mx-auto">
           <div className="max-w-4xl mb-16">
-            <h2 className="text-sm text-zinc-400 uppercase tracking-wider mb-6">Why Quanti Capital</h2>
+            <h2 className="text-sm text-zinc-400 uppercase tracking-wider mb-6">Why Quanti</h2>
             <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
               We offer strategic trade platform for critical minerals and rare earths. 
             </h3>
@@ -330,7 +330,7 @@ export default function QuantiCapitalComplete() {
             <div className="order-1 lg:order-2">
               <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Markets</h2>
               <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-                Connecting global markets to African resources.
+                Connecting global markets to Western resources.
               </h3>
               <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
                 With operations spanning Europe, Asia, and the Americas, we integrate Western markets into critical material supply chains. Our deep expertise in African mining regions—particularly Zambia, Angola, DRC, Tanzania, and South Africa—positions us to connect global demand with reliable supply.
@@ -339,7 +339,7 @@ export default function QuantiCapitalComplete() {
               <div className="space-y-6">
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Western Market Integration</h4>
-                  <p className="text-sm text-zinc-600 font-light">Creating pathways for European, Asian, and American buyers to access African critical materials through transparent, traceable supply chains.</p>
+                  <p className="text-sm text-zinc-600 font-light">Creating pathways for European, Asian, and American manufacturers to access critical materials through transparent, traceable supply chains.</p>
                 </div>
                 <div className="border-l-2 border-zinc-300 pl-6">
                   <h4 className="text-xl font-light mb-2">Local Partnerships</h4>
@@ -484,7 +484,7 @@ export default function QuantiCapitalComplete() {
               <h4 className="text-sm font-medium mb-4">Quanti Capital</h4>
               <ul className="space-y-2 text-sm text-zinc-600">
                 <li><a href="#" className="hover:text-black transition-colors">Brokerage Services</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">MoU Structuring</a></li>
+                <li><a href="#" className="hover:text-black transition-colors">Preliminary Offtake Structuring</a></li>
                 <li><a href="#" className="hover:text-black transition-colors">Market Intelligence</a></li>
                 <li><a href="#" className="hover:text-black transition-colors">Buyer-Seller Matching</a></li>
               </ul>
