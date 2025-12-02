@@ -123,8 +123,6 @@ function ContactFormComponent() {
 export default function QuantiCapitalComplete() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
-
-
   const divisions = [
     {
       name: "Brokerage",
