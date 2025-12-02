@@ -59,8 +59,8 @@ function ContactFormComponent() {
         <div className="space-y-6">
           <div className="border-l-2 border-zinc-300 pl-6">
             <div className="text-sm text-zinc-500 uppercase tracking-wider mb-1">Email</div>
-            <a href="mailto:samuel.torres@quanticapital.org" className="text-lg font-light hover:text-zinc-600 transition-colors">
-              samuel.torres@quanticapital.org
+            <a href="mailto:info@quanticapital.org" className="text-lg font-light hover:text-zinc-600 transition-colors">
+              info@quanticapital.org
             </a>
           </div>
           <div className="border-l-2 border-zinc-300 pl-6">
