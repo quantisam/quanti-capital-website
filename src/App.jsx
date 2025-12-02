@@ -348,7 +348,6 @@ export default function QuantiCapitalComplete() {
               </div>
             </div>
             <div className="flex items-center space-x-6">
-              <a href="#careers" className="hidden md:block text-sm text-zinc-600 hover:text-black transition-colors">Careers</a>
               <a href="#contact" className="text-sm bg-black text-white px-6 py-2.5 hover:bg-zinc-800 transition-colors">Contact</a>
             </div>
           </div>
