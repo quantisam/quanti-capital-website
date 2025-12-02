@@ -39,7 +39,7 @@ Sent from Quanti Capital Contact Form
       },
       body: JSON.stringify({
         from: 'Quanti Capital Website <onboarding@resend.dev>',
-        to: ['samuel.torres@quanticapital.org'],
+        to: ['info@quanticapital.org'],
         reply_to: email,
         subject: `New Contact: ${name} - ${interest || 'General Inquiry'}`,
         text: emailContent,
