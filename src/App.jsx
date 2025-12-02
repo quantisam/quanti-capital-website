@@ -815,32 +815,164 @@ export default function QuantiCapitalComplete() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="contact" className="py-24 px-6 lg:px-12">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-            Ready to integrate into global markets?
-          </h2>
-          <p className="text-xl text-zinc-600 font-light mb-12">
-            Whether you're a mine seeking market access or a buyer looking for reliable sources, our integrated platform can support your critical mineral needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="#"
-              className="inline-flex items-center justify-center bg-black text-white px-8 py-4 hover:bg-zinc-800 transition-colors group"
-            >
-              <span className="mr-2">Contact Our Team</span>
-              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center justify-center border-2 border-zinc-300 text-black px-8 py-4 hover:border-zinc-400 transition-colors"
-            >
-              Explore Our Services
+     / Contact Form Component
+const ContactFormComponent = () => {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    company: '',
+    interest: 'general',
+    message: ''
+  });
+  const [status, setStatus] = React.useState('idle');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', company: '', interest: 'general', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <>
+      {/* Left Column - Info */}
+      <div>
+        <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Contact Us</h2>
+        <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
+          Ready to connect with global critical materials markets?
+        </h3>
+        <p className="text-lg text-zinc-600 font-light leading-relaxed mb-12">
+          Whether you're a mine seeking market access or a buyer looking for reliable sources, our integrated platform can support your critical materials needs.
+        </p>
+
+        <div className="space-y-6">
+          <div className="border-l-2 border-zinc-300 pl-6">
+            <div className="text-sm text-zinc-500 uppercase tracking-wider mb-1">Email</div>
+            <a href="mailto:samuel.torres@quanticapital.org" className="text-lg font-light hover:text-zinc-600 transition-colors">
+              samuel.torres@quanticapital.org
             </a>
           </div>
+          <div className="border-l-2 border-zinc-300 pl-6">
+            <div className="text-sm text-zinc-500 uppercase tracking-wider mb-1">Response Time</div>
+            <div className="text-lg font-light">Within 24 hours</div>
+          </div>
         </div>
-      </section>
+      </div>
+
+      {/* Right Column - Form */}
+      <div className="bg-white border border-zinc-200 p-8">
+        <h4 className="text-2xl font-light mb-6">Send us a message</h4>
+        
+        {status === 'success' && (
+          <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-800 text-sm">
+            Thank you! Your message has been sent. We'll respond within 24 hours.
+          </div>
+        )}
+
+        {status === 'error' && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-800 text-sm">
+            Something went wrong. Please try again or email us directly.
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-sm font-light mb-2">Name *</label>
+            <input
+              type="text"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({...formData, name: e.target.value})}
+              className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500"
+              placeholder="Your full name"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-light mb-2">Email *</label>
+            <input
+              type="email"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500"
+              placeholder="your@email.com"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-light mb-2">Company</label>
+            <input
+              type="text"
+              value={formData.company}
+              onChange={(e) => setFormData({...formData, company: e.target.value})}
+              className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500"
+              placeholder="Company name"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-light mb-2">I'm interested in *</label>
+            <select
+              required
+              value={formData.interest}
+              onChange={(e) => setFormData({...formData, interest: e.target.value})}
+              className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500"
+            >
+              <option value="general">General Inquiry</option>
+              <option value="brokerage">Brokerage Services</option>
+              <option value="logistics">Logistics & Traceability</option>
+              <option value="hedging">Hedging Solutions</option>
+              <option value="markets">Market Access</option>
+              <option value="supplier">I'm a Supplier/Mine</option>
+              <option value="buyer">I'm a Buyer/Manufacturer</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-light mb-2">Message *</label>
+            <textarea
+              required
+              rows={5}
+              value={formData.message}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+              className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500 resize-none"
+              placeholder="Tell us about your needs..."
+            />
+          </div>
+
+          <button
+            type="submit"
+            disabled={status === 'sending'}
+            className="w-full bg-black text-white px-8 py-4 hover:bg-zinc-800 transition-colors disabled:bg-zinc-400 flex items-center justify-center group"
+          >
+            <span className="mr-2">
+              {status === 'sending' ? 'Sending...' : 'Send Message'}
+            </span>
+            {status !== 'sending' && (
+              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+            )}
+          </button>
+        </form>
+      </div>
+    </>
+  );
+};
 
       {/* Footer */}
       <footer className="bg-white border-t border-zinc-200 py-12 px-6 lg:px-12">
@@ -853,7 +985,7 @@ export default function QuantiCapitalComplete() {
                 <span className="text-xl font-light tracking-tight">CAPITAL</span>
               </div>
               <p className="text-sm text-zinc-600 font-light mb-6">
-                A strategic trade company connecting global buyers and suppliers of critical minerals and rare earths.
+                A company connecting American resources and end-users of critical minerals and rare earths.
               </p>
               <div className="text-sm text-zinc-600 font-light">
                 <div>info@quanticapital.org</div>
