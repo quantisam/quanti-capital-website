@@ -932,9 +932,6 @@ export default function QuantiCapitalComplete() {
 
       {/* Footer */}
       <footer className="bg-white border-t border-zinc-200 py-12 px-6 lg:px-12">
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-zinc-200 py-12 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-6 gap-12 mb-12">
             <div className="md:col-span-2">
