@@ -13,151 +13,6 @@ const QuantiSymbol = ({ className = "h-6 w-6" }) => (
   </svg>
 );
 
-// RSS Feed Insights Section Component
-function InsightsSection() {
-  const [articles, setArticles] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(false);
-
-  React.useEffect(() => {
-    async function fetchRSSFeeds() {
-      try {
-        // Using RSS2JSON service (free, no API key needed)
-        const feeds = [
-          'https://api.rss2json.com/v1/api.json?rss_url=https://www.mining.com/feed/',
-          'https://api.rss2json.com/v1/api.json?rss_url=https://www.kitco.com/rss/kitconewsrss.xml',
-        ];
-
-        const responses = await Promise.all(
-          feeds.map(url => fetch(url).then(res => res.json()))
-        );
-
-        // Combine and process articles
-        const allArticles = responses.flatMap(response => 
-          response.items?.slice(0, 3).map(item => ({
-            title: item.title,
-            link: item.link,
-            pubDate: new Date(item.pubDate),
-            description: item.description?.replace(/<[^>]*>/g, '').substring(0, 150) + '...',
-            source: item.link.includes('mining.com') ? 'Mining.com' : 'Kitco News'
-          })) || []
-        );
-
-        // Sort by date and take top 6
-        const sortedArticles = allArticles
-          .sort((a, b) => b.pubDate - a.pubDate)
-          .slice(0, 6);
-
-        setArticles(sortedArticles);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching RSS feeds:', err);
-        setError(true);
-        setLoading(false);
-      }
-    }
-
-    fetchRSSFeeds();
-  }, []);
-
-  const formatDate = (date) => {
-    return date.toLocaleDateString('en-US', { 
-      month: 'long', 
-      day: 'numeric', 
-      year: 'numeric' 
-    });
-  };
-
-  if (loading) {
-    return (
-      <section id="insights" className="py-24 px-6 lg:px-12 bg-zinc-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Latest Insights</h2>
-            <h3 className="text-4xl font-light">Market Intelligence & Industry Analysis</h3>
-          </div>
-          <div className="text-center text-zinc-500">Loading latest articles...</div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error || articles.length === 0) {
-    return (
-      <section id="insights" className="py-24 px-6 lg:px-12 bg-zinc-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Latest Insights</h2>
-            <h3 className="text-4xl font-light">Market Intelligence & Industry Analysis</h3>
-          </div>
-          <div className="bg-white border border-zinc-200 p-8 text-center">
-            <p className="text-zinc-600 font-light mb-4">
-              Stay informed with the latest developments in critical materials markets.
-            </p>
-            <a 
-              href="https://www.mining.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-sm text-black hover:text-zinc-600 transition-colors"
-            >
-              Visit Mining.com for latest news →
-            </a>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section id="insights" className="py-24 px-6 lg:px-12 bg-zinc-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
-          <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Latest Insights</h2>
-          <h3 className="text-4xl font-light mb-8">Market Intelligence & Industry Analysis</h3>
-          <p className="text-lg text-zinc-600 font-light">
-            Stay informed with the latest developments in critical markets.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article, index) => (
-  
-    key={index}
-    href={article.link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-white border border-zinc-200 p-6 hover:border-zinc-400 transition-all group"
-  >
-    <div className="text-xs text-zinc-500 uppercase tracking-wider mb-2">
-      {article.source}
-    </div>
-    <div className="text-sm text-zinc-500 mb-3">
-      {formatDate(article.pubDate)}
-    </div>
-    <h4 className="text-lg font-light mb-3 group-hover:text-zinc-600 transition-colors">
-      {article.title}
-    </h4>
-    <p className="text-sm text-zinc-600 font-light mb-4">
-      {article.description}
-    </p>
-    <div className="flex items-center text-sm font-medium text-zinc-600 group-hover:text-black transition-colors">
-      Read More
-      <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={14} />
-    </div>
-  </a>
-))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-sm text-zinc-500 font-light">
-            Articles updated automatically from industry sources
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // Contact Form Component
 function ContactFormComponent() {
   const [formData, setFormData] = React.useState({
@@ -344,7 +199,6 @@ export default function QuantiCapitalComplete() {
                 <a href="#hedging" className="text-zinc-600 hover:text-black transition-colors">Hedging</a>
                 <a href="#markets" className="text-zinc-600 hover:text-black transition-colors">Markets</a>
                 <a href="#materials" className="text-zinc-600 hover:text-black transition-colors">Materials</a>
-                <a href="#insights" className="text-zinc-600 hover:text-black transition-colors">Insights</a>
               </div>
             </div>
             <div className="flex items-center space-x-6">
@@ -1032,33 +886,6 @@ export default function QuantiCapitalComplete() {
         </div>
       </section>
 
-     {/* Insights Section */}
-      <InsightsSection />
-
-          <div className="bg-white border border-zinc-200 p-8">
-            <p className="text-zinc-600 font-light">
-              <strong className="text-black font-medium">Note:</strong> To display real-time articles that update weekly, you'll need to integrate with a news API service such as:
-            </p>
-            <ul className="mt-4 space-y-2 text-sm text-zinc-600">
-              <li className="flex items-start">
-                <span className="text-zinc-400 mr-2">•</span>
-                <span className="font-light"><strong>NewsAPI:</strong> Filter by keywords like "critical minerals", "rare earths"</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-zinc-400 mr-2">•</span>
-                <span className="font-light"><strong>RSS Feeds:</strong> Aggregate from mining.com, reuters.com, bloomberg.com</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-zinc-400 mr-2">•</span>
-                <span className="font-light"><strong>Custom CMS:</strong> Manually curate articles from your team</span>
-              </li>
-            </ul>
-            <p className="mt-6 text-sm text-zinc-600 font-light">
-              Would you like me to help you set up one of these integrations? I can create the API connection for automated news updates.
-            </p>
-          </div>
-        </div>
-      </section>
       {/* Contact Form Section */}
       <section id="contact" className="py-24 px-6 lg:px-12 bg-zinc-50">
         <div className="max-w-7xl mx-auto">
