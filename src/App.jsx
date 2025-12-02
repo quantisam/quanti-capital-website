@@ -115,37 +115,37 @@ function InsightsSection() {
           <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Latest Insights</h2>
           <h3 className="text-4xl font-light mb-8">Market Intelligence & Industry Analysis</h3>
           <p className="text-lg text-zinc-600 font-light">
-            Stay informed with the latest developments in critical materials markets.
+            Stay informed with the latest developments in critical markets.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {articles.map((article, index) => (
-            
-              key={index}
-              href={article.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white border border-zinc-200 p-6 hover:border-zinc-400 transition-all group"
-            >
-              <div className="text-xs text-zinc-500 uppercase tracking-wider mb-2">
-                {article.source}
-              </div>
-              <div className="text-sm text-zinc-500 mb-3">
-                {formatDate(article.pubDate)}
-              </div>
-              <h4 className="text-lg font-light mb-3 group-hover:text-zinc-600 transition-colors">
-                {article.title}
-              </h4>
-              <p className="text-sm text-zinc-600 font-light mb-4">
-                {article.description}
-              </p>
-              <div className="flex items-center text-sm font-medium text-zinc-600 group-hover:text-black transition-colors">
-                Read More
-                <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={14} />
-              </div>
-            </a>
-          ))}
+  
+    key={index}
+    href={article.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-white border border-zinc-200 p-6 hover:border-zinc-400 transition-all group"
+  >
+    <div className="text-xs text-zinc-500 uppercase tracking-wider mb-2">
+      {article.source}
+    </div>
+    <div className="text-sm text-zinc-500 mb-3">
+      {formatDate(article.pubDate)}
+    </div>
+    <h4 className="text-lg font-light mb-3 group-hover:text-zinc-600 transition-colors">
+      {article.title}
+    </h4>
+    <p className="text-sm text-zinc-600 font-light mb-4">
+      {article.description}
+    </p>
+    <div className="flex items-center text-sm font-medium text-zinc-600 group-hover:text-black transition-colors">
+      Read More
+      <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={14} />
+    </div>
+  </a>
+))}
         </div>
 
         <div className="mt-12 text-center">
