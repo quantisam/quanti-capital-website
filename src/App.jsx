@@ -51,7 +51,7 @@ function ContactFormComponent() {
       <div>
         <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Contact Us</h2>
         <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-          Ready to integrate?
+          Ready to Integrate?
         </h3>
         <p className="text-lg text-zinc-600 font-light leading-relaxed mb-12">
           Whether you're a mine seeking market access or an end user looking for reliable sources, our integrated platform can support your critical mineral needs.
