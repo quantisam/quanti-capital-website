@@ -320,7 +320,7 @@ export default function QuantiCapitalComplete() {
           <div className="mb-16">
             <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Our Divisions</h2>
             <h3 className="text-4xl md:text-5xl font-light leading-tight max-w-3xl">
-              Four divisions working together to serve the global critical materials market.
+              Four divisions working together to serve the global critical mineral and rare earth element market.
             </h3>
           </div>
 
