@@ -51,10 +51,10 @@ function ContactFormComponent() {
       <div>
         <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Contact Us</h2>
         <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-          Ready to connect with global critical materials markets?
+          Ready to integrate?
         </h3>
         <p className="text-lg text-zinc-600 font-light leading-relaxed mb-12">
-          Whether you're a mine seeking market access or a buyer looking for reliable sources, our integrated platform can support your critical materials needs.
+          Whether you're a mine seeking market access or an end user looking for reliable sources, our integrated platform can support your critical mineral needs.
         </p>
         <div className="space-y-6">
           <div className="border-l-2 border-zinc-300 pl-6">
@@ -245,7 +245,7 @@ export default function QuantiCapitalComplete() {
             </div>
             <div>
               <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Mission</div>
-              <div className="text-4xl font-light mb-2">Strengthening the Supply Chains of the Future</div>
+              <div className="text-4xl font-light mb-2">Strengthening Supply Chains of the Future</div>
               <div className="text-sm text-zinc-600 font-light">We balance the supply chains of tomorrow by integrating American resources into global markets.</div>
             </div>
           </div>
