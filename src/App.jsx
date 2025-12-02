@@ -940,7 +940,7 @@ const ContactFormComponent = () => {
               <option value="hedging">Hedging Solutions</option>
               <option value="markets">Market Access</option>
               <option value="supplier">I'm a Supplier/Mine</option>
-              <option value="buyer">I'm a Buyer/Manufacturer</option>
+              <option value="end-user">I'm a Buyer/Manufacturer</option>
             </select>
           </div>
 
