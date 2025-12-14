@@ -2,8 +2,9 @@
 
 ## Project Overview
 Corporate website for **Quanti Capital** - a critical minerals and rare earth elements trading company. 
-- **Tagline:** "Integrating American resources into Global Supply Chains"
+- **Tagline:** "Critical Materials. Global Reach."
 - **Focus:** Breaking bottlenecks in critical materials trade
+- **Headquarters:** Winter Park, Florida, USA
 
 ## Tech Stack
 - **Framework:** React 18 + Vite 5
@@ -18,25 +19,23 @@ Corporate website for **Quanti Capital** - a critical minerals and rare earth el
 ├── src/
 │   ├── App.jsx              # Router setup and page routes
 │   ├── main.jsx             # React entry point
-│   ├── index.css            # Tailwind imports + custom utilities
+│   ├── index.css            # Tailwind imports + custom animations
 │   ├── components/
 │   │   └── shared.jsx       # Reusable components (GlassCard, Header, Footer, etc.)
 │   ├── pages/
-│   │   ├── HomePage.jsx     # Landing page with hero, pillars, divisions preview
+│   │   ├── HomePage.jsx     # Interactive hero with mouse-following effects
 │   │   ├── BrokeragePage.jsx
 │   │   ├── LogisticsPage.jsx
 │   │   ├── HedgingPage.jsx
 │   │   ├── MarketsPage.jsx
-│   │   ├── MaterialsPage.jsx # Critical materials grid (no live data)
+│   │   ├── MaterialsPage.jsx # Critical materials grid (static)
 │   │   ├── DivisionsPage.jsx
 │   │   ├── ContactPage.jsx
 │   │   ├── PrivacyPage.jsx
 │   │   ├── TermsPage.jsx
 │   │   └── DisclaimerPage.jsx
-│   ├── hooks/
-│   │   └── useCommodityPrices.js  # (Legacy - live prices removed)
-│   ├── services/
-│   │   └── commodityApi.js        # (Legacy - live prices removed)
+│   ├── hooks/               # (Legacy hooks - not actively used)
+│   ├── services/            # (Legacy services - not actively used)
 │   └── lib/
 ├── api/
 │   ├── contact.js           # Vercel serverless - contact form emails

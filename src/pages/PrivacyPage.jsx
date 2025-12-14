@@ -4,7 +4,7 @@ import { PageHeader, Footer, GradientOrbs, GlassCard } from '../components/share
 const sections = [
   {
     title: "1. Introduction",
-    content: `Quanti Capital Ltd. ("Quanti Capital," "we," "us," or "our") is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website, use our services, or otherwise interact with us.
+    content: `Quanti Capital LLC ("Quanti Capital," "we," "us," or "our"), a Florida limited liability company with its principal place of business in Winter Park, Florida, is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website, use our services, or otherwise interact with us.
 
 This policy applies to all individuals who access our website, use our services, or provide us with personal information in any capacity, including but not limited to clients, prospective clients, business partners, and website visitors.
 
@@ -33,11 +33,11 @@ By accessing our website or using our services, you acknowledge that you have re
   },
   {
     title: "3. Legal Basis for Processing",
-    content: `We process your personal information in accordance with applicable data protection laws, including the UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. Our legal bases for processing include:
+    content: `We process your personal information in accordance with applicable U.S. federal and Florida state privacy laws. Our legal bases for processing include:
 
 **Contractual Necessity:** Processing necessary for the performance of a contract with you or to take steps at your request prior to entering into a contract.
 
-**Legal Obligation:** Processing necessary for compliance with legal and regulatory obligations, including anti-money laundering, sanctions screening, and financial services regulations.
+**Legal Obligation:** Processing necessary for compliance with legal and regulatory obligations, including anti-money laundering, sanctions screening, and financial services regulations under U.S. law.
 
 **Legitimate Interests:** Processing necessary for our legitimate business interests, including fraud prevention, network security, and business development, provided such interests are not overridden by your rights and freedoms.
 
@@ -50,7 +50,7 @@ By accessing our website or using our services, you acknowledge that you have re
 • To provide, maintain, and improve our services
 • To process transactions and send related information
 • To respond to your inquiries and provide customer support
-• To comply with legal and regulatory requirements
+• To comply with legal and regulatory requirements under U.S. and Florida law
 • To conduct due diligence and risk assessment
 • To prevent fraud, money laundering, and other financial crimes
 • To send marketing communications (with your consent)
@@ -64,7 +64,7 @@ By accessing our website or using our services, you acknowledge that you have re
 
 **Service Providers:** Third-party vendors who provide services on our behalf, including IT support, payment processing, and professional advisors.
 
-**Regulatory Authorities:** Government agencies, regulators, and law enforcement where required by law or in connection with legal proceedings.
+**Regulatory Authorities:** U.S. federal and state government agencies, regulators, and law enforcement where required by law or in connection with legal proceedings.
 
 **Business Partners:** Carefully selected partners involved in the provision of our services, subject to appropriate confidentiality obligations.
 
@@ -74,86 +74,60 @@ We do not sell your personal information to third parties. Any sharing is conduc
   },
   {
     title: "6. International Data Transfers",
-    content: `As a global business operating in the critical materials sector, we may transfer your personal information to recipients in countries outside the United Kingdom and European Economic Area. Where such transfers occur, we ensure appropriate safeguards are in place, including:
+    content: `As a global business operating in the critical materials sector, we may transfer your personal information to recipients in countries outside the United States. Where such transfers occur, we ensure appropriate safeguards are in place, including:
 
-• Transfers to countries with an adequacy decision
-• Standard Contractual Clauses approved by the UK Information Commissioner
-• Binding Corporate Rules where applicable
-• Explicit consent for specific transfers
+• Contractual protections with data recipients
+• Compliance with applicable U.S. data transfer requirements
+• Implementation of appropriate security measures
 
-You may request a copy of the relevant safeguards by contacting our Data Protection Officer.`
+We primarily store and process data within the United States.`
   },
   {
-    title: "7. Data Retention",
-    content: `We retain personal information only for as long as necessary to fulfill the purposes for which it was collected, including to satisfy legal, regulatory, accounting, or reporting requirements.
-
-The retention period may vary depending on the context of the processing and our legal obligations. Generally:
-
-• Client records: Minimum 7 years after the end of the business relationship
-• Marketing data: Until consent is withdrawn or 3 years of inactivity
-• Website analytics: 26 months from collection
-• Legal claims data: Duration of the limitation period plus a reasonable buffer
-
-When personal information is no longer required, we will securely delete or anonymize it.`
-  },
-  {
-    title: "8. Your Rights",
-    content: `Under applicable data protection laws, you have the following rights regarding your personal information:
-
-• **Right of Access:** Request a copy of your personal information
-• **Right to Rectification:** Request correction of inaccurate or incomplete data
-• **Right to Erasure:** Request deletion of your personal information
-• **Right to Restriction:** Request limitation of processing in certain circumstances
-• **Right to Data Portability:** Receive your data in a structured, machine-readable format
-• **Right to Object:** Object to processing based on legitimate interests or for marketing
-• **Right to Withdraw Consent:** Where processing is based on consent
-• **Right to Lodge a Complaint:** With the Information Commissioner's Office (ICO)
-
-To exercise any of these rights, please contact our Data Protection Officer using the details provided below.`
-  },
-  {
-    title: "9. Security Measures",
+    title: "7. Data Security",
     content: `We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. These measures include:
 
 • Encryption of data in transit and at rest
-• Access controls and authentication requirements
-• Regular security assessments and penetration testing
-• Employee training on data protection and security
-• Incident response and breach notification procedures
-• Physical security measures for our premises and equipment
+• Access controls and authentication procedures
+• Regular security assessments and monitoring
+• Employee training on data protection
+• Incident response procedures
 
-While we strive to protect your personal information, no method of transmission over the Internet or electronic storage is completely secure. We cannot guarantee absolute security.`
+While we strive to protect your information, no method of transmission over the Internet or electronic storage is completely secure. We cannot guarantee absolute security.`
   },
   {
-    title: "10. Cookies and Tracking Technologies",
-    content: `Our website uses cookies and similar tracking technologies to enhance your browsing experience, analyze website traffic, and understand user behavior.
+    title: "8. Your Rights",
+    content: `Depending on your jurisdiction, you may have certain rights regarding your personal information:
 
-**Essential Cookies:** Required for the website to function properly.
-**Analytics Cookies:** Help us understand how visitors interact with our website.
-**Marketing Cookies:** Used to deliver relevant advertisements.
+**Access:** The right to request a copy of the personal information we hold about you.
 
-You can manage your cookie preferences through your browser settings. Please note that disabling certain cookies may affect website functionality.`
+**Correction:** The right to request correction of inaccurate personal information.
+
+**Deletion:** The right to request deletion of your personal information, subject to certain exceptions.
+
+**Opt-Out:** The right to opt out of certain data processing activities, including marketing communications.
+
+**California Residents:** If you are a California resident, you may have additional rights under the California Consumer Privacy Act (CCPA), including the right to know what personal information is collected and the right to non-discrimination.
+
+**Florida Residents:** If you are a Florida resident, you may have additional rights under the Florida Digital Bill of Rights, effective July 1, 2024.
+
+To exercise any of these rights, please contact us using the information provided below.`
   },
   {
-    title: "11. Changes to This Policy",
-    content: `We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. We will notify you of any material changes by posting the updated policy on our website with a new effective date.
+    title: "9. Cookies and Tracking",
+    content: `We use cookies and similar tracking technologies to enhance your experience on our website. You can control cookies through your browser settings and opt out of certain tracking.
 
-We encourage you to review this policy periodically to stay informed about how we protect your information.`
+For more information about our use of cookies, please contact us.`
   },
   {
-    title: "12. Contact Information",
-    content: `If you have any questions about this Privacy Policy or our data protection practices, please contact:
+    title: "10. Contact Us",
+    content: `If you have questions about this Privacy Policy or our data practices, please contact us at:
 
-**Data Protection Officer**
-Quanti Capital Ltd.
-London, United Kingdom
+**Quanti Capital LLC**
+Winter Park, Florida
+United States
 Email: privacy@quanticapital.com
 
-**Supervisory Authority**
-Information Commissioner's Office (ICO)
-Wycliffe House, Water Lane
-Wilmslow, Cheshire SK9 5AF
-www.ico.org.uk`
+We will respond to your inquiry within a reasonable timeframe.`
   }
 ];
 
@@ -176,7 +150,7 @@ export default function PrivacyPage() {
                 {sections.map((section, index) => (
                   <div key={index} className="mb-10 last:mb-0">
                     <h2 className="text-xl font-semibold text-white mb-4">{section.title}</h2>
-                    <div className="text-white/50 text-sm leading-relaxed whitespace-pre-line">
+                    <div className="text-white/60 leading-relaxed whitespace-pre-line text-sm">
                       {section.content}
                     </div>
                   </div>

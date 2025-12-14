@@ -5,7 +5,7 @@ import { PageHeader, Footer, GradientOrbs, GlassCard } from '../components/share
 const sections = [
   {
     title: "1. General Disclaimer",
-    content: `The information contained on this website and in any materials provided by Quanti Capital Ltd. ("Quanti Capital," "we," "us," or "our") is for general informational purposes only. Nothing on this website constitutes, or is intended to constitute, financial, investment, legal, tax, or other professional advice.
+    content: `The information contained on this website and in any materials provided by Quanti Capital LLC ("Quanti Capital," "we," "us," or "our"), a Florida limited liability company, is for general informational purposes only. Nothing on this website constitutes, or is intended to constitute, financial, investment, legal, tax, or other professional advice.
 
 You should not act or refrain from acting based on any information on this website without first seeking independent professional advice from a qualified advisor who is aware of your particular circumstances. Your use of this website and reliance on any information herein is solely at your own risk.
 
@@ -15,7 +15,9 @@ Quanti Capital makes no representations or warranties of any kind, express or im
     title: "2. No Investment Advice",
     content: `**IMPORTANT: THE CONTENT ON THIS WEBSITE DOES NOT CONSTITUTE INVESTMENT ADVICE.**
 
-Quanti Capital is not a registered investment advisor, broker-dealer, or investment manager. We do not provide personalized investment recommendations. Any discussion of commodities, materials, market trends, or trading strategies is provided for educational and informational purposes only.
+Quanti Capital is not a registered investment advisor, broker-dealer, or investment manager under U.S. federal or Florida state law. We are not registered with the Securities and Exchange Commission (SEC), the Commodity Futures Trading Commission (CFTC), or any state securities regulator. We do not provide personalized investment recommendations.
+
+Any discussion of commodities, materials, market trends, or trading strategies is provided for educational and informational purposes only.
 
 Past performance of any investment, commodity, or trading strategy is not indicative of future results. The value of investments can go down as well as up, and you may lose some or all of your invested capital.
 
@@ -29,7 +31,7 @@ Before making any investment decision, you should:
     title: "3. Hedging and Derivatives Disclaimer",
     content: `**FUTURES AND OPTIONS TRADING INVOLVES SUBSTANTIAL RISK OF LOSS AND IS NOT SUITABLE FOR ALL INVESTORS.**
 
-Quanti Capital provides hedging advisory services and introductions to licensed Futures Commission Merchants (FCMs). We do not directly execute, clear, or settle any futures, options, or derivative transactions.
+Quanti Capital provides hedging advisory services and introductions to licensed Futures Commission Merchants (FCMs) registered with the CFTC. We do not directly execute, clear, or settle any futures, options, or derivative transactions. We are not a registered Commodity Trading Advisor (CTA) or Commodity Pool Operator (CPO).
 
 **Important Risk Disclosures:**
 
@@ -71,90 +73,65 @@ For actual trading decisions, you should rely on real-time data from authoritati
 
 **Geopolitical Risk:** Critical materials supply chains are concentrated in specific regions and may be subject to political instability, trade restrictions, sanctions, or nationalization.
 
-**Regulatory Risk:** Environmental regulations, export controls, and critical materials legislation (such as the US Inflation Reduction Act and EU Critical Raw Materials Act) can significantly impact supply, demand, and pricing.
+**Regulatory Risk:** Environmental regulations, export controls, and critical materials legislation (such as the U.S. Inflation Reduction Act, Defense Production Act, and EU Critical Raw Materials Act) can significantly impact supply, demand, and pricing.
 
 **Supply Chain Risk:** Many critical materials have limited production sources and long development timelines for new projects, creating potential supply vulnerabilities.
 
 **Price Volatility:** Critical materials markets may experience extreme price volatility due to supply/demand imbalances, speculation, or geopolitical events.
 
-**Counterparty Risk:** Transactions in critical materials often involve counterparties in various jurisdictions with differing legal frameworks and enforcement mechanisms.
-
-**Physical Delivery Risk:** Physical commodity transactions involve risks related to quality, quantity, storage, transportation, and insurance.`
+**Counterparty Risk:** Transactions in critical materials often involve counterparties in various jurisdictions with differing legal frameworks and enforcement mechanisms.`
   },
   {
-    title: "7. Third-Party Content",
-    content: `This website may include content, data, or links from third-party sources. Such content is provided for convenience only, and Quanti Capital:
+    title: "7. Regulatory Compliance",
+    content: `Quanti Capital operates in compliance with applicable U.S. federal and Florida state laws. Our services are subject to various regulatory requirements including:
 
-• Does not control or endorse third-party content
-• Makes no representations about the accuracy or completeness of third-party content
-• Is not responsible for the content, policies, or practices of third-party websites
-• Does not guarantee the availability or functionality of third-party services
+• U.S. sanctions regulations administered by OFAC
+• Anti-money laundering requirements under the Bank Secrecy Act
+• Export control regulations (EAR, ITAR where applicable)
+• State of Florida business regulations
 
-Inclusion of third-party content does not imply any affiliation, sponsorship, endorsement, or recommendation by Quanti Capital.`
+We only work with counterparties in jurisdictions that comply with U.S. legal requirements and do not engage with sanctioned entities or individuals.`
   },
   {
-    title: "8. Regulatory Status",
-    content: `Quanti Capital Ltd. is a company registered in England and Wales. Our regulatory status varies by service and jurisdiction:
+    title: "8. No Guarantee of Results",
+    content: `We make no representations or guarantees regarding:
 
-**Brokerage Services:** Our brokerage activities are conducted in accordance with applicable commercial law. We are not regulated as a broker-dealer for securities transactions.
+• The profitability or success of any transaction
+• The availability of counterparties or market liquidity
+• The accuracy of market forecasts or analysis
+• The performance of any hedging strategy
+• The suitability of our services for your needs
 
-**Hedging Services:** We provide hedging advisory and introduction services. All hedging transactions are executed through regulated Futures Commission Merchants. We do not hold client funds for hedging purposes.
-
-**Logistics Services:** Our logistics services are provided as a commercial freight broker.
-
-This website is not directed at any jurisdiction where the publication or availability of its contents would be unlawful. Users are responsible for ensuring compliance with their local laws.`
+All business decisions should be made after careful consideration and consultation with your own professional advisors.`
   },
   {
-    title: "9. Anti-Money Laundering and Sanctions",
-    content: `Quanti Capital maintains robust compliance programs to prevent money laundering, terrorist financing, and sanctions violations. We are committed to:
+    title: "9. Limitation of Liability",
+    content: `TO THE MAXIMUM EXTENT PERMITTED BY FLORIDA LAW:
 
-• Conducting appropriate due diligence on clients and counterparties
-• Screening against applicable sanctions lists
-• Reporting suspicious activities as required by law
-• Maintaining records in accordance with regulatory requirements
+Quanti Capital shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from:
 
-We reserve the right to decline or terminate any business relationship if we are unable to satisfactorily complete our due diligence or if we have concerns about the nature or purpose of a transaction.
+• Your use of or inability to use our website or services
+• Any errors or omissions in our content
+• Any unauthorized access to your information
+• Any third-party conduct or content
+• Any loss of profits, data, or business opportunities
 
-**Sanctions Compliance:** We do not engage in transactions involving sanctioned persons, entities, or jurisdictions. Users are responsible for ensuring their activities do not violate applicable sanctions laws.`
+Our total liability shall not exceed the amount you paid us in the twelve (12) months preceding the claim, or one hundred dollars ($100), whichever is greater.`
   },
   {
-    title: "10. Limitation of Liability",
-    content: `TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, QUANTI CAPITAL, ITS DIRECTORS, OFFICERS, EMPLOYEES, AGENTS, AND AFFILIATES SHALL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO:
-
-• Loss of profits, revenue, or anticipated savings
-• Loss of data or business interruption
-• Loss arising from investment or trading decisions
-• Loss arising from reliance on information provided
-• Any other pecuniary loss
-
-ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF THIS WEBSITE OR OUR SERVICES, WHETHER BASED IN CONTRACT, TORT, NEGLIGENCE, STRICT LIABILITY, OR ANY OTHER THEORY, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-
-Some jurisdictions do not allow the exclusion or limitation of certain damages, so some of the above limitations may not apply to you.`
+    title: "10. Governing Law",
+    content: `This Disclaimer shall be governed by and construed in accordance with the laws of the State of Florida, without regard to its conflict of law provisions. Any disputes arising from this Disclaimer shall be resolved in the state or federal courts located in Orange County, Florida.`
   },
   {
-    title: "11. Indemnification",
-    content: `You agree to indemnify and hold harmless Quanti Capital and its directors, officers, employees, agents, and affiliates from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable legal fees) arising from:
+    title: "11. Contact Information",
+    content: `If you have questions about this Disclaimer, please contact us at:
 
-• Your use of this website or our services
-• Your violation of these disclaimers or our Terms of Service
-• Your violation of any applicable laws or regulations
-• Any reliance you place on information provided on this website
-• Any transaction you enter into based on information obtained through our services`
-  },
-  {
-    title: "12. Governing Law",
-    content: `These disclaimers shall be governed by and construed in accordance with the laws of England and Wales. Any disputes arising in connection with these disclaimers shall be subject to the exclusive jurisdiction of the courts of England and Wales.`
-  },
-  {
-    title: "13. Contact Information",
-    content: `If you have any questions about these disclaimers or require clarification on any matter, please contact:
+**Quanti Capital LLC**
+Winter Park, Florida 32789
+United States
+Email: legal@quanticapital.com
 
-**Compliance Department**
-Quanti Capital Ltd.
-London, United Kingdom
-Email: compliance@quanticapital.com
-
-For general inquiries: contact@quanticapital.com`
+This Disclaimer was last updated in December 2024.`
   }
 ];
 
@@ -170,34 +147,30 @@ export default function DisclaimerPage() {
           subtitle="Important legal notices and risk disclosures"
         />
 
-        {/* Important Notice Banner */}
+        {/* Warning Banner */}
         <section className="px-6 -mt-8 mb-8">
           <div className="max-w-4xl mx-auto">
-            <GlassCard className="p-6 border-amber-500/20">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
-                  <AlertTriangle className="w-5 h-5 text-amber-400" />
-                </div>
-                <div>
-                  <h3 className="text-base font-semibold text-white mb-2">Important Notice</h3>
-                  <p className="text-white/50 text-sm leading-relaxed">
-                    Trading in commodities and critical materials involves substantial risk of loss. Past performance is not indicative of future results. 
-                    The information on this website is not investment advice. Consult qualified professionals before making any investment or trading decisions.
-                  </p>
-                </div>
+            <div className="bg-amber-500/10 border border-amber-500/20 rounded-2xl p-6 flex items-start gap-4">
+              <AlertTriangle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="text-amber-400 font-semibold mb-2">Important Notice</h3>
+                <p className="text-amber-200/70 text-sm leading-relaxed">
+                  Trading in critical materials and commodities involves substantial risk. This website does not constitute investment advice. 
+                  Please read this disclaimer carefully and consult with qualified professionals before making any financial decisions.
+                </p>
               </div>
-            </GlassCard>
+            </div>
           </div>
         </section>
 
-        <section className="py-16 px-6">
+        <section className="py-8 px-6">
           <div className="max-w-4xl mx-auto">
             <GlassCard className="p-8 md:p-12">
               <div className="prose prose-invert max-w-none">
                 {sections.map((section, index) => (
                   <div key={index} className="mb-10 last:mb-0">
                     <h2 className="text-xl font-semibold text-white mb-4">{section.title}</h2>
-                    <div className="text-white/50 text-sm leading-relaxed whitespace-pre-line">
+                    <div className="text-white/60 leading-relaxed whitespace-pre-line text-sm">
                       {section.content}
                     </div>
                   </div>

@@ -239,10 +239,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-10 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 text-center">
           <p className="text-white/40 text-sm">
-            © {new Date().getFullYear()} Quanti Capital Ltd. All rights reserved.
+            © {new Date().getFullYear()} Quanti Capital LLC. All rights reserved.
           </p>
           <p className="text-white/30 text-xs">
-            Registered in England & Wales. Company No. 00000000
+            A Florida Limited Liability Company · Winter Park, FL
           </p>
         </div>
       </div>
