@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, TrendingDown } from 'lucide-react';
+import { ArrowLeft, TrendingUp, TrendingDown, Menu, X } from 'lucide-react';
 import { useTickerCommodities } from '../hooks/useCommodityPrices';
 
 // Reusable Glass Card Component with enhanced shadows
@@ -58,28 +58,28 @@ export function CommodityTicker() {
   return (
     <div className="relative w-full border-t border-b border-white/[0.06] bg-gradient-to-r from-black/60 via-black/50 to-black/60 backdrop-blur-2xl shadow-[0_-1px_0_rgba(255,255,255,0.05),0_1px_0_rgba(255,255,255,0.05)] overflow-hidden">
       {/* Gradient fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#050505] via-[#050505]/80 to-transparent z-10" />
       
       {/* Ticker animation */}
-      <div className="flex animate-ticker py-4">
+      <div className="flex animate-ticker py-3 sm:py-4">
         {[...tickerData, ...tickerData, ...tickerData].map((item, index) => (
-          <div key={`${item.symbol}-${index}`} className="flex items-center gap-6 mx-8 whitespace-nowrap">
-            <div className="flex items-center gap-2">
-              <span className="text-white/40 text-xs font-semibold">{item.symbol}</span>
-              <span className="text-white/60 text-sm">{item.name}</span>
+          <div key={`${item.symbol}-${index}`} className="flex items-center gap-3 sm:gap-6 mx-4 sm:mx-8 whitespace-nowrap">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <span className="text-white/40 text-[10px] sm:text-xs font-semibold">{item.symbol}</span>
+              <span className="text-white/60 text-xs sm:text-sm">{item.name}</span>
               {!item.isSimulated && (
-                <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" title="Live data" />
+                <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-emerald-400 rounded-full animate-pulse" title="Live data" />
               )}
             </div>
-            <span className="text-white text-sm font-medium">
+            <span className="text-white text-xs sm:text-sm font-medium">
               {formatPrice(item.price)}
             </span>
-            <span className={`text-sm font-medium flex items-center gap-1 ${item.change >= 0 ? 'text-emerald-400/80' : 'text-red-400/80'}`}>
+            <span className={`text-xs sm:text-sm font-medium flex items-center gap-1 ${item.change >= 0 ? 'text-emerald-400/80' : 'text-red-400/80'}`}>
               {item.change >= 0 ? (
-                <TrendingUp className="w-3 h-3" />
+                <TrendingUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
               ) : (
-                <TrendingDown className="w-3 h-3" />
+                <TrendingDown className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
               )}
               {formatChange(item.change)}
             </span>
@@ -91,19 +91,21 @@ export function CommodityTicker() {
 }
 
 // Quanti Logo Component - using official SVG logo
-export function QuantiLogo({ dark = false, className = "" }) {
+export function QuantiLogo({ dark = false, className = "h-10 sm:h-14" }) {
   return (
     <img 
       src="/QUANTII.svg" 
       alt="Quanti Capital" 
-      className={`h-14 w-auto ${className}`}
+      className={`w-auto ${className}`}
       style={dark ? { filter: 'brightness(0) saturate(100%)' } : {}}
     />
   );
 }
 
-// Navigation Header - matching original site design
+// Navigation Header - matching original site design with mobile menu
 export function Header({ variant = 'dark' }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const navItems = [
     { label: 'About', href: '/divisions' },
     { label: 'Brokerage', href: '/brokerage' },
@@ -117,14 +119,15 @@ export function Header({ variant = 'dark' }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className={`px-6 py-4 ${isDark ? 'bg-[#050505]/90 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.4)]' : 'bg-white/90 backdrop-blur-2xl border-b border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.08)]'}`}>
+      <div className={`px-4 sm:px-6 py-3 sm:py-4 ${isDark ? 'bg-[#050505]/95 backdrop-blur-2xl border-b border-white/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.4)]' : 'bg-white/95 backdrop-blur-2xl border-b border-gray-100 shadow-[0_4px_24px_rgba(0,0,0,0.08)]'}`}>
         <div className="max-w-6xl mx-auto w-full">
           <nav className="flex items-center justify-between">
-            <RouterLink to="/">
-              <QuantiLogo dark={!isDark} />
+            <RouterLink to="/" onClick={() => setMobileMenuOpen(false)}>
+              <QuantiLogo dark={!isDark} className="h-10 sm:h-14" />
             </RouterLink>
             
-            <div className="hidden md:flex items-center gap-8">
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-6 xl:gap-8">
               {navItems.map((item) => (
                 <RouterLink
                   key={item.label}
@@ -136,15 +139,53 @@ export function Header({ variant = 'dark' }) {
               ))}
             </div>
             
-            <RouterLink
-              to="/contact"
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105 ${isDark ? 'bg-white text-black hover:bg-white/90' : 'bg-gray-900 text-white hover:bg-gray-800'}`}
-            >
-              Contact
-            </RouterLink>
+            <div className="flex items-center gap-3">
+              <RouterLink
+                to="/contact"
+                className={`hidden sm:inline-flex px-4 sm:px-5 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105 ${isDark ? 'bg-white text-black hover:bg-white/90' : 'bg-gray-900 text-white hover:bg-gray-800'}`}
+              >
+                Contact
+              </RouterLink>
+              
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className={`lg:hidden p-2 rounded-lg transition-colors ${isDark ? 'text-white/70 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`}
+                aria-label="Toggle menu"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
           </nav>
         </div>
       </div>
+      
+      {/* Mobile Menu Overlay */}
+      {mobileMenuOpen && (
+        <div className={`lg:hidden ${isDark ? 'bg-[#050505]/98' : 'bg-white/98'} backdrop-blur-2xl border-b ${isDark ? 'border-white/[0.06]' : 'border-gray-100'}`}>
+          <div className="max-w-6xl mx-auto px-4 py-6">
+            <div className="flex flex-col gap-1">
+              {navItems.map((item) => (
+                <RouterLink
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`px-4 py-3 rounded-xl text-base font-medium transition-colors ${isDark ? 'text-white/70 hover:text-white hover:bg-white/[0.05]' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
+                >
+                  {item.label}
+                </RouterLink>
+              ))}
+              <RouterLink
+                to="/contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className={`mt-4 px-4 py-3 rounded-xl text-base font-semibold text-center transition-all ${isDark ? 'bg-white text-black hover:bg-white/90' : 'bg-gray-900 text-white hover:bg-gray-800'}`}
+              >
+                Contact Us
+              </RouterLink>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
@@ -154,30 +195,30 @@ export function PageHeader({ eyebrow, title, subtitle, backLink = "/", backLabel
   return (
     <>
       <Header />
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto text-center">
           {/* Back link - centered */}
-          <div className="mb-10 flex justify-center">
-            <RouterLink to={backLink} className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 transition-all duration-300 text-sm group px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] hover:border-white/[0.1]">
-              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+          <div className="mb-6 sm:mb-10 flex justify-center">
+            <RouterLink to={backLink} className="inline-flex items-center gap-2 text-white/40 hover:text-white/70 transition-all duration-300 text-xs sm:text-sm group px-3 sm:px-4 py-2 rounded-full bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] hover:border-white/[0.1]">
+              <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 group-hover:-translate-x-1 transition-transform" />
               {backLabel}
             </RouterLink>
           </div>
           
           {/* Centered content with enhanced typography */}
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {eyebrow && (
-              <p className="text-white/50 text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+              <p className="text-white/50 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-2">
                 {eyebrow}
               </p>
             )}
             
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.1] tracking-tight max-w-4xl mx-auto">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-[1.15] sm:leading-[1.1] tracking-tight max-w-4xl mx-auto px-2">
               {title}
             </h1>
             
             {subtitle && (
-              <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed px-2">
                 {subtitle}
               </p>
             )}
@@ -191,22 +232,22 @@ export function PageHeader({ eyebrow, title, subtitle, backLink = "/", backLabel
 // Footer Component with enhanced styling
 export function Footer() {
   return (
-    <footer className="py-20 px-6 border-t border-white/[0.06] bg-gradient-to-b from-transparent to-black/20">
+    <footer className="py-12 sm:py-20 px-4 sm:px-6 border-t border-white/[0.06] bg-gradient-to-b from-transparent to-black/20">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-12 mb-16">
-          <div className="flex flex-col items-center md:items-start gap-4 text-center md:text-left">
-            <QuantiLogo />
+        <div className="flex flex-col items-center gap-10 sm:gap-12 mb-12 sm:mb-16">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <QuantiLogo className="h-12 sm:h-14" />
             <p className="text-white/40 text-sm max-w-xs leading-relaxed">
               Integrating global resources. Connecting mines to manufacturers.
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 md:gap-16 w-full max-w-lg sm:max-w-none">
             {/* Divisions */}
-            <div>
-              <h4 className="text-white/60 text-sm font-semibold mb-4">Divisions</h4>
-              <div className="flex flex-col gap-3">
+            <div className="text-center sm:text-left">
+              <h4 className="text-white/60 text-sm font-semibold mb-3 sm:mb-4">Divisions</h4>
+              <div className="flex flex-col gap-2 sm:gap-3">
                 <RouterLink to="/brokerage" className="text-sm text-white/40 hover:text-white transition-colors">Brokerage</RouterLink>
                 <RouterLink to="/logistics" className="text-sm text-white/40 hover:text-white transition-colors">Logistics</RouterLink>
                 <RouterLink to="/hedging" className="text-sm text-white/40 hover:text-white transition-colors">Hedging</RouterLink>
@@ -215,9 +256,9 @@ export function Footer() {
             </div>
             
             {/* Company */}
-            <div>
-              <h4 className="text-white/60 text-sm font-semibold mb-4">Company</h4>
-              <div className="flex flex-col gap-3">
+            <div className="text-center sm:text-left">
+              <h4 className="text-white/60 text-sm font-semibold mb-3 sm:mb-4">Company</h4>
+              <div className="flex flex-col gap-2 sm:gap-3">
                 <RouterLink to="/divisions" className="text-sm text-white/40 hover:text-white transition-colors">About</RouterLink>
                 <RouterLink to="/materials" className="text-sm text-white/40 hover:text-white transition-colors">Materials</RouterLink>
                 <RouterLink to="/contact" className="text-sm text-white/40 hover:text-white transition-colors">Contact</RouterLink>
@@ -225,9 +266,9 @@ export function Footer() {
             </div>
             
             {/* Legal */}
-            <div>
-              <h4 className="text-white/60 text-sm font-semibold mb-4">Legal</h4>
-              <div className="flex flex-col gap-3">
+            <div className="text-center sm:text-left col-span-2 sm:col-span-1">
+              <h4 className="text-white/60 text-sm font-semibold mb-3 sm:mb-4">Legal</h4>
+              <div className="flex flex-col gap-2 sm:gap-3">
                 <RouterLink to="/privacy" className="text-sm text-white/40 hover:text-white transition-colors">Privacy Policy</RouterLink>
                 <RouterLink to="/terms" className="text-sm text-white/40 hover:text-white transition-colors">Terms of Service</RouterLink>
                 <RouterLink to="/disclaimer" className="text-sm text-white/40 hover:text-white transition-colors">Disclaimer</RouterLink>
@@ -237,11 +278,11 @@ export function Footer() {
         </div>
         
         {/* Bottom Bar */}
-        <div className="pt-10 border-t border-white/[0.06] flex flex-col md:flex-row items-center justify-center md:justify-between gap-4 text-center">
-          <p className="text-white/40 text-sm">
+        <div className="pt-8 sm:pt-10 border-t border-white/[0.06] flex flex-col items-center gap-3 sm:gap-4 text-center">
+          <p className="text-white/40 text-xs sm:text-sm">
             © {new Date().getFullYear()} Quanti Capital LLC. All rights reserved.
           </p>
-          <p className="text-white/30 text-xs">
+          <p className="text-white/30 text-[10px] sm:text-xs">
             A Florida Limited Liability Company · Winter Park, FL
           </p>
         </div>
@@ -254,10 +295,10 @@ export function Footer() {
 export function GradientOrbs() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute top-1/4 left-1/4 w-[700px] h-[700px] bg-gradient-radial from-white/[0.03] to-transparent rounded-full blur-[150px] animate-pulse-slow"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-gradient-radial from-white/[0.025] to-transparent rounded-full blur-[130px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-to-br from-white/[0.015] via-transparent to-white/[0.01] rounded-full blur-[180px]"></div>
-      <div className="absolute top-0 right-1/3 w-[400px] h-[400px] bg-gradient-radial from-emerald-500/[0.02] to-transparent rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] bg-gradient-radial from-white/[0.03] to-transparent rounded-full blur-[100px] sm:blur-[150px] animate-pulse-slow"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] bg-gradient-radial from-white/[0.025] to-transparent rounded-full blur-[80px] sm:blur-[130px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] md:w-[900px] md:h-[900px] bg-gradient-to-br from-white/[0.015] via-transparent to-white/[0.01] rounded-full blur-[120px] sm:blur-[180px]"></div>
+      <div className="absolute top-0 right-1/3 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] bg-gradient-radial from-emerald-500/[0.02] to-transparent rounded-full blur-[60px] sm:blur-[100px] animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
     </div>
   );
 }
@@ -270,14 +311,14 @@ export function CTASection({
   buttonLink = "/contact"
 }) {
   return (
-    <section className="py-28 px-6">
+    <section className="py-16 sm:py-20 md:py-28 px-4 sm:px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <GlassCard className="p-12 md:p-20" glow>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">{title}</h2>
-          <p className="text-white/50 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">{subtitle}</p>
+        <GlassCard className="p-8 sm:p-12 md:p-20" glow>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight px-2">{title}</h2>
+          <p className="text-white/50 text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed px-2">{subtitle}</p>
           <RouterLink
             to={buttonLink}
-            className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black rounded-full text-base font-semibold shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.35)] hover:bg-white/95 transition-all duration-300 hover:scale-[1.03]"
+            className="inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3.5 sm:py-4 md:py-5 bg-white text-black rounded-full text-sm sm:text-base font-semibold shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.35)] hover:bg-white/95 transition-all duration-300 hover:scale-[1.03] w-full sm:w-auto"
           >
             {buttonText}
           </RouterLink>
