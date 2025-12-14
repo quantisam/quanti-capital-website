@@ -35,9 +35,18 @@ npm run preview
 ```
 quanti-capital-website/
 ├── src/
-│   ├── App.jsx          # Main website component
-│   ├── main.jsx         # Application entry point
+│   ├── components/      # Shared UI components
+│   │   └── shared.jsx   # GlassCard, Header, Footer, etc.
+│   ├── hooks/           # React hooks
+│   │   └── useCommodityPrices.js  # Live commodity data hook
+│   ├── pages/           # Page components
+│   ├── services/        # API services
+│   │   └── commodityApi.js  # Alpha Vantage API client
+│   ├── main.jsx         # Application entry point with routing
 │   └── index.css        # Global styles (Tailwind)
+├── api/                 # Vercel serverless functions
+│   ├── contact.js       # Contact form handler
+│   └── commodities.js   # Commodity price API proxy
 ├── public/              # Static assets
 ├── index.html           # HTML template
 ├── package.json         # Dependencies and scripts
@@ -53,6 +62,22 @@ quanti-capital-website/
 - **Styling:** Tailwind CSS
 - **Icons:** Lucide React
 - **Deployment:** Vercel
+- **Commodity Data:** Alpha Vantage API (free tier)
+
+## 💹 Live Commodity Prices
+
+The website displays live commodity prices for Copper and Aluminum using the Alpha Vantage free API (25 requests/day). Other critical materials (Lithium, Cobalt, Nickel, Rare Earths) display indicative prices.
+
+### Setup API Key
+
+1. Get a free API key from [Alpha Vantage](https://www.alphavantage.co/support/#api-key)
+2. Copy `.env.example` to `.env.local`
+3. Add your API key: `ALPHA_VANTAGE_API_KEY=your_key_here`
+
+For production deployment on Vercel:
+- Add `ALPHA_VANTAGE_API_KEY` as an environment variable in your Vercel project settings
+
+**Note:** Without an API key, the site will display demo data with appropriate disclaimers.
 
 ## 📝 Making Changes
 

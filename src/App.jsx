@@ -1,970 +1,565 @@
 import React from 'react';
-import { ArrowRight, ChevronDown, Shield, Globe, TrendingUp, Link, Truck, FileCheck, BarChart3, Boxes, MapPin, Package, Anchor } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Link, Truck, BarChart3, MapPin, Sparkles } from 'lucide-react';
 
-// Quanti Capital Symbol Component
-const QuantiSymbol = ({ className = "h-6 w-6" }) => (
-  <svg className={className} viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <line x1="4" y1="8" x2="36" y2="8" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="4" y1="16" x2="36" y2="16" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="4" y1="8" x2="36" y2="16" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="36" y1="8" x2="4" y2="16" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="20" y1="4" x2="20" y2="20" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="12" y1="12" x2="28" y2="12" stroke="currentColor" strokeWidth="1.5"/>
-  </svg>
+// ============================================================================
+// QUANTI CAPITAL - PREMIUM MARKETING SITE
+// Ultra-modern dark theme with advanced glassmorphism
+// ============================================================================
+
+// Quanti Logo Component
+const QuantiLogo = ({ showText = true }) => (
+  <div className="flex items-center gap-3">
+    <div className="relative w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+      <svg className="w-4 h-4 text-black" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="4" y1="8" x2="36" y2="8" stroke="currentColor" strokeWidth="2.5"/>
+        <line x1="4" y1="16" x2="36" y2="16" stroke="currentColor" strokeWidth="2.5"/>
+        <line x1="4" y1="8" x2="36" y2="16" stroke="currentColor" strokeWidth="2.5"/>
+        <line x1="36" y1="8" x2="4" y2="16" stroke="currentColor" strokeWidth="2.5"/>
+      </svg>
+    </div>
+    {showText && (
+      <span className="text-white font-semibold text-lg tracking-wide">
+        QUANTI
+      </span>
+    )}
+  </div>
 );
 
-// Contact Form Component
-function ContactFormComponent() {
-  const [formData, setFormData] = React.useState({
-    name: '',
-    email: '',
-    company: '',
-    interest: 'general',
-    message: ''
-  });
-  const [status, setStatus] = React.useState('idle');
+// Premium Glass Card Component
+const GlassCard = ({ children, className = "", hover = true }) => (
+  <div className={`
+    relative overflow-hidden
+    bg-gradient-to-br from-white/[0.08] to-white/[0.02]
+    backdrop-blur-2xl
+    border border-white/[0.08]
+    rounded-3xl
+    shadow-[0_8px_32px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.1)]
+    ${hover ? 'hover:bg-white/[0.06] hover:border-white/[0.12] hover:shadow-[0_16px_48px_rgba(0,0,0,0.4),inset_0_1px_0_rgba(255,255,255,0.15)] hover:-translate-y-1' : ''}
+    transition-all duration-500 ease-out
+    ${className}
+  `}>
+    {/* Shimmer effect */}
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.03] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+    {children}
+  </div>
+);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('sending');
+// Commodity Ticker Data
+const commodities = [
+  { name: "LITHIUM CARBONATE", price: "$13,250", change: "+2.4%", positive: true },
+  { name: "COBALT (99.8%)", price: "$28,500", change: "-0.8%", positive: false },
+  { name: "NICKEL SULFATE", price: "$16,100", change: "+1.2%", positive: true },
+  { name: "COPPER (LME)", price: "$8,450", change: "+0.5%", positive: true },
+  { name: "GRAPHITE (FLAKE)", price: "$780", change: "0.0%", positive: null },
+  { name: "RARE EARTHS (NdPr)", price: "$52,000", change: "-1.5%", positive: false },
+  { name: "SPODUMENE (6%)", price: "$950", change: "+3.1%", positive: true },
+];
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', company: '', interest: 'general', message: '' });
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      setStatus('error');
-    }
-  };
-
-  return (
-    <>
-      <div>
-        <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Contact Us</h2>
-        <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-          Ready to Integrate?
-        </h3>
-        <p className="text-lg text-zinc-600 font-light leading-relaxed mb-12">
-          Whether you're a mine seeking market access or an end user looking for reliable sources, our integrated platform can support your critical mineral needs.
-        </p>
-        <div className="space-y-6">
-          <div className="border-l-2 border-zinc-300 pl-6">
-            <div className="text-sm text-zinc-500 uppercase tracking-wider mb-1">Email</div>
-            <a href="mailto:info@quanticapital.org" className="text-lg font-light hover:text-zinc-600 transition-colors">
-              info@quanticapital.org
-            </a>
-          </div>
-          <div className="border-l-2 border-zinc-300 pl-6">
-            <div className="text-sm text-zinc-500 uppercase tracking-wider mb-1">Response Time</div>
-            <div className="text-lg font-light">Within 24 hours</div>
-          </div>
+// Premium Commodity Ticker
+const CommodityTicker = () => (
+  <div className="w-full bg-black/70 backdrop-blur-xl border-y border-white/[0.06] py-4 overflow-hidden">
+    <div className="flex animate-ticker">
+      {[...commodities, ...commodities, ...commodities].map((commodity, index) => (
+        <div key={index} className="flex items-center gap-4 px-10 whitespace-nowrap">
+          <span className="text-white/40 text-xs font-medium tracking-wide uppercase">{commodity.name}</span>
+          <span className="text-white text-sm font-bold tabular-nums">{commodity.price}</span>
+          <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+            commodity.positive === true 
+              ? 'text-emerald-400 bg-emerald-400/10' 
+              : commodity.positive === false 
+                ? 'text-rose-400 bg-rose-400/10' 
+                : 'text-white/40 bg-white/5'
+          }`}>
+            {commodity.change}
+          </span>
         </div>
-      </div>
-      <div className="bg-white border border-zinc-200 p-8">
-        <h4 className="text-2xl font-light mb-6">Send us a message</h4>
-        {status === 'success' && (
-          <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-800 text-sm">
-            Thank you! Your message has been sent. We'll respond within 24 hours.
-          </div>
-        )}
-        {status === 'error' && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-800 text-sm">
-            Something went wrong. Please try again or email us directly.
-          </div>
-        )}
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label className="block text-sm font-light mb-2">Name *</label>
-            <input type="text" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500" placeholder="Your full name" />
-          </div>
-          <div>
-            <label className="block text-sm font-light mb-2">Email *</label>
-            <input type="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500" placeholder="your@email.com" />
-          </div>
-          <div>
-            <label className="block text-sm font-light mb-2">Company</label>
-            <input type="text" value={formData.company} onChange={(e) => setFormData({...formData, company: e.target.value})} className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500" placeholder="Company name" />
-          </div>
-          <div>
-            <label className="block text-sm font-light mb-2">I'm interested in *</label>
-            <select required value={formData.interest} onChange={(e) => setFormData({...formData, interest: e.target.value})} className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500">
-              <option value="general">General Inquiry</option>
-              <option value="brokerage">Brokerage Services</option>
-              <option value="logistics">Logistics & Traceability</option>
-              <option value="hedging">Hedging Solutions</option>
-              <option value="markets">Market Access</option>
-              <option value="supplier">I'm a Supplier/Mine</option>
-              <option value="end-user">I'm a Buyer/Manufacturer</option>
-            </select>
-          </div>
-          <div>
-            <label className="block text-sm font-light mb-2">Message *</label>
-            <textarea required rows={5} value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full px-4 py-3 border border-zinc-300 focus:outline-none focus:border-zinc-500 resize-none" placeholder="Tell us about your needs..." />
-          </div>
-          <button type="submit" disabled={status === 'sending'} className="w-full bg-black text-white px-8 py-4 hover:bg-zinc-800 transition-colors disabled:bg-zinc-400 flex items-center justify-center group">
-            <span className="mr-2">{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
-            {status !== 'sending' && (<ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />)}
-          </button>
-        </form>
-      </div>
-    </>
-  );
+      ))}
+    </div>
+  </div>
+);
 
-  
-}
-
-export default function QuantiCapitalComplete() {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
-
-  const divisions = [
-    {
-      name: "Brokerage",
-      tagline: "Services",
-      description: "Many new mines and processing plants are coming online, but demand must match supply. Quanti helps balance the market by locating offtake, integrating suppliers and buyers, while connecting only compliant counterparties in friendly countries.",
-      icon: Link,
-      link: "#services",
-      highlights: [
-        "Identify and secure diversified offtake for mines and processing facilities",
-        "Connect producers with OEMs, refiners, and private-sector buyers",
-        "Balance supply with real commercial demand as new projects come online",
-        "Integrate compliant, friendly-country partners into critical material supply chains"
-      ]
-    },
-    {
-      name: "Logistics",
-      tagline: "Freight & Traceability",
-      description: "Specialized logistics solutions with flexible traceability integration. We work with any traceability application the parties prefer, partnering with software companies, data analytics firms, and buyers to track materials from source to destination.",
-      icon: Truck,
-      link: "#logistics",
-      highlights: [
-        "Freight brokerage for critical materials transportation",
-        "Integration with preferred traceability systems",
-        "Flexible technology partnerships for supply chain visibility",
-        "Compliance documentation and chain of custody"
-      ]
-    },
-    {
-      name: "Hedging",
-      tagline: "Risk Management",
-      description: "We partner with Futures Commission Merchants (FCMs) to provide hedging solutions for both buyers and sellers in the critical materials market, helping manage price volatility and market uncertainties.",
-      icon: BarChart3,
-      link: "#hedging",
-      highlights: [
-        "Partnership with FCMs for comprehensive hedging solutions",
-        "Price risk mitigation for buyers and sellers",
-        "Market volatility management strategies",
-        "Customized hedging programs for critical materials"
-      ]
-    },
-    {
-      name: "Markets",
-      tagline: "Global Operations",
-      description: "Connecting global markets across Europe, Asia, Africa and the Americas to critical mineral sources.",
-      icon: MapPin,
-      link: "#markets",
-      highlights: [
-        "Global footprint across multiple continents",
-        "Operations in African markets such as Zambia, Angola, DRC, Tanzania, South Africa",
-        "Integrating American, European and African markets into supply chains",
-        "Connecting global demand with alternative resources"
-      ]
-    }
+// Premium Glassmorphic Header
+const Header = () => {
+  const navLinks = [
+    { href: "#about", label: "Platform" },
+    { href: "#divisions", label: "Divisions" },
+    { href: "#contact", label: "Contact" },
   ];
 
   return (
-    <div className="min-h-screen bg-white text-black">
-      {/* Navigation */}
-      <nav className="fixed w-full bg-white/95 backdrop-blur-sm z-50 border-b border-zinc-200">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-12">
-              <a href="#" className="flex items-center space-x-3">
-                <span className="text-xl font-light tracking-tight">QUANTI</span>
-                <QuantiSymbol className="h-5 w-5" />
-                <span className="text-xl font-light tracking-tight">CAPITAL</span>
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl">
+      <nav className="
+        bg-black/50 backdrop-blur-2xl 
+        border border-white/[0.08] 
+        rounded-full 
+        px-3 py-2
+        shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.1)]
+      ">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <a href="#" className="flex items-center pl-2">
+            <QuantiLogo />
+          </a>
+
+          {/* Center Navigation */}
+          <div className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="
+                  px-5 py-2.5 
+                  text-sm font-medium text-white/60 
+                  hover:text-white 
+                  rounded-full 
+                  hover:bg-white/[0.06]
+                  transition-all duration-300
+                "
+              >
+                {link.label}
               </a>
-              <div className="hidden lg:flex space-x-8 text-sm">
-                <a href="#about" className="text-zinc-600 hover:text-black transition-colors">About</a>
-                <a href="#brokerage" className="text-zinc-600 hover:text-black transition-colors">Brokerage</a>
-                <a href="#logistics" className="text-zinc-600 hover:text-black transition-colors">Logistics</a>
-                <a href="#hedging" className="text-zinc-600 hover:text-black transition-colors">Hedging</a>
-                <a href="#markets" className="text-zinc-600 hover:text-black transition-colors">Markets</a>
-                <a href="#materials" className="text-zinc-600 hover:text-black transition-colors">Materials</a>
-              </div>
-            </div>
-            <div className="flex items-center space-x-6">
-              <a href="#contact" className="text-sm bg-black text-white px-6 py-2.5 hover:bg-zinc-800 transition-colors">Contact</a>
-            </div>
+            ))}
           </div>
+
+          {/* CTA Button */}
+          <a
+            href="#contact"
+            className="
+              relative overflow-hidden
+              bg-white text-black 
+              px-6 py-2.5 
+              rounded-full 
+              text-sm font-semibold 
+              hover:bg-white/95
+              shadow-[0_0_20px_rgba(255,255,255,0.25),0_0_40px_rgba(255,255,255,0.1)]
+              hover:shadow-[0_0_30px_rgba(255,255,255,0.4),0_0_60px_rgba(255,255,255,0.15)]
+              transition-all duration-300
+            "
+          >
+            <span className="relative z-10">Connect</span>
+          </a>
         </div>
       </nav>
+    </header>
+  );
+};
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-24 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-7xl font-light leading-tight mb-8 tracking-tight">
-              Integrating American resources into Global Supply Chains
-            </h1>
-            <p className="text-xl md:text-2xl text-zinc-600 font-light leading-relaxed max-w-3xl">
-              We develop diversified sourcing networks that connect Western resources to global supply chains, resolve offtake challenges, and open channels to international markets beyond government programs—driving balanced, sustainable demand for critical minerals and rare earths
+// Premium Hero Section
+const HeroSection = () => (
+  <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#050505]">
+    {/* Advanced Background Effects */}
+    <div className="absolute inset-0">
+      {/* Primary gradient mesh */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.03)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(255,255,255,0.02)_0%,transparent_50%)]" />
+      
+      {/* Animated orbs */}
+      <div 
+        className="absolute -left-[20%] -top-[10%] w-[800px] h-[800px] rounded-full animate-pulse"
+        style={{
+          background: 'radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)',
+          filter: 'blur(100px)',
+        }}
+      />
+      <div 
+        className="absolute -right-[10%] top-[20%] w-[600px] h-[600px] rounded-full animate-pulse"
+        style={{
+          background: 'radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%)',
+          filter: 'blur(120px)',
+          animationDelay: '1s',
+          animationDuration: '4s',
+        }}
+      />
+      
+      {/* Grid overlay */}
+      <div 
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '100px 100px',
+        }}
+      />
+      
+      {/* Vignette */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
+    </div>
+
+    {/* Hero Content - Centered */}
+    <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center max-w-6xl mx-auto px-6 pt-32 pb-24">
+      {/* Eyebrow Badge */}
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.05] border border-white/[0.08] mb-8 backdrop-blur-xl">
+        <Sparkles className="w-4 h-4 text-white/60" />
+        <span className="text-white/60 text-sm font-medium tracking-wide">Operational in 5 Continents</span>
+      </div>
+
+      {/* Main Headline */}
+      <h1 className="mb-8">
+        <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[96px] font-bold text-white tracking-tighter leading-[0.95]">
+          INTEGRATING
+        </span>
+        <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-[72px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-white/40 via-white/20 to-white/40 tracking-tighter leading-[0.95] mt-2">
+          GLOBAL RESOURCES
+        </span>
+      </h1>
+
+      {/* Subheadline */}
+      <p className="text-white/50 text-lg md:text-xl max-w-2xl leading-relaxed mb-12 font-light">
+        Quanti Capital connects mines to manufacturers. We solve offtake challenges, secure supply, and bridge the gap between Western resources and global markets.
+      </p>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <a 
+          href="#divisions" 
+          className="
+            group inline-flex items-center gap-3 
+            bg-white text-black 
+            px-8 py-4 
+            rounded-full 
+            text-base font-semibold 
+            shadow-[0_0_30px_rgba(255,255,255,0.2)]
+            hover:shadow-[0_0_50px_rgba(255,255,255,0.35)]
+            hover:scale-[1.02]
+            transition-all duration-300
+          "
+        >
+          Explore Divisions
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+        </a>
+        <a 
+          href="#contact" 
+          className="
+            inline-flex items-center gap-3 
+            bg-white/[0.05] backdrop-blur-xl
+            border border-white/[0.1]
+            text-white 
+            px-8 py-4 
+            rounded-full 
+            text-base font-medium 
+            hover:bg-white/[0.08] hover:border-white/[0.15]
+            transition-all duration-300
+          "
+        >
+          Contact Us
+        </a>
+      </div>
+
+      {/* Stats Bar */}
+      <GlassCard className="w-full max-w-3xl p-8" hover={false}>
+        <div className="grid grid-cols-3 divide-x divide-white/[0.08]">
+          <div className="text-center px-6">
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">4</div>
+            <div className="text-white/40 text-sm font-medium tracking-wide">Core Divisions</div>
+          </div>
+          <div className="text-center px-6">
+            <div className="flex items-baseline justify-center mb-2">
+              <span className="text-white/40 text-xl mr-1">$</span>
+              <span className="text-4xl md:text-5xl font-bold text-white">500</span>
+              <span className="text-white/40 text-xl ml-1">M+</span>
+            </div>
+            <div className="text-white/40 text-sm font-medium tracking-wide">Volume Structured</div>
+          </div>
+          <div className="text-center px-6">
+            <div className="text-4xl md:text-5xl font-bold text-white mb-2">100<span className="text-white/40 text-2xl">%</span></div>
+            <div className="text-white/40 text-sm font-medium tracking-wide">Mission Driven</div>
+          </div>
+        </div>
+      </GlassCard>
+    </div>
+
+    {/* Commodity Ticker */}
+    <CommodityTicker />
+  </section>
+);
+
+// Premium Platform Section
+const PlatformSection = () => (
+  <section id="about" className="relative bg-[#050505] py-32 overflow-hidden">
+    {/* Background accent */}
+    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/[0.01] rounded-full blur-[150px]" />
+    
+    <div className="relative z-10 max-w-6xl mx-auto px-6">
+      {/* Section Header - Centered */}
+      <div className="text-center mb-20">
+        <p className="text-white/40 text-sm font-semibold uppercase tracking-[0.2em] mb-4">The Platform</p>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+          Bridging the Critical Gap
+        </h2>
+        <p className="text-white/50 text-lg md:text-xl max-w-2xl mx-auto font-light">
+          We sit between government incentives and private sector realities.
+        </p>
+      </div>
+
+      {/* Value Props Grid */}
+      <div className="grid md:grid-cols-3 gap-6">
+        {[
+          {
+            icon: BarChart3,
+            title: "Market Makers",
+            description: "We create liquidity in traditionally illiquid markets. By stepping in as a principal, we ensure mines have a buyer and OEMs have a seller."
+          },
+          {
+            icon: Link,
+            title: "First Offtake",
+            description: "Solving the \"chicken and egg\" problem for new mines by securing initial commercial agreements that unlock project financing."
+          },
+          {
+            icon: MapPin,
+            title: "Western Aligned",
+            description: "Strict adherence to IRA, CRMA, and global compliance standards for secure, friendly-nation supply chains."
+          }
+        ].map((prop, index) => (
+          <GlassCard key={index} className="group p-8">
+            <div className="mb-6">
+              <div className="
+                w-14 h-14 
+                rounded-2xl 
+                bg-gradient-to-br from-white/[0.1] to-white/[0.02]
+                border border-white/[0.08]
+                flex items-center justify-center 
+                group-hover:scale-110 group-hover:border-white/[0.15]
+                transition-all duration-500
+              ">
+                <prop.icon className="w-6 h-6 text-white/70" />
+              </div>
+            </div>
+            <h3 className="text-xl font-semibold text-white mb-3">{prop.title}</h3>
+            <p className="text-white/40 text-sm leading-relaxed">{prop.description}</p>
+          </GlassCard>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// Premium Divisions Section
+const DivisionsSection = () => {
+  const divisions = [
+    {
+      name: "Brokerage",
+      description: "Connecting mines with manufacturers through strategic offtake agreements and market intelligence.",
+      icon: Link,
+      href: "#brokerage"
+    },
+    {
+      name: "Logistics & Traceability",
+      description: "End-to-end supply chain visibility with integrated tracking and compliance documentation.",
+      icon: Truck,
+      href: "#logistics"
+    },
+    {
+      name: "Hedging & Risk",
+      description: "Price risk management through FCM partnerships and customized hedging programs.",
+      icon: BarChart3,
+      href: "#hedging"
+    },
+    {
+      name: "Global Markets",
+      description: "Operations spanning Africa, Europe, Asia, and the Americas with local expertise.",
+      icon: MapPin,
+      href: "#markets"
+    },
+  ];
+
+  return (
+    <section id="divisions" className="relative bg-[#050505] py-32 overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-white/[0.01] rounded-full blur-[200px]" />
+      
+      <div className="relative z-10 max-w-6xl mx-auto px-6">
+        {/* Section Header - Centered */}
+        <div className="text-center mb-16">
+          <p className="text-white/40 text-sm font-semibold uppercase tracking-[0.2em] mb-4">
+            Integrated Service Divisions
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight">
+            Specialized units working in concert.
+          </h2>
+        </div>
+
+        {/* Divisions Grid */}
+        <div className="grid md:grid-cols-2 gap-6">
+          {divisions.map((division) => (
+            <a
+              key={division.name}
+              href={division.href}
+              className="group"
+            >
+              <GlassCard className="p-8 h-full">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="
+                    w-14 h-14 
+                    rounded-2xl 
+                    bg-gradient-to-br from-white/[0.1] to-white/[0.02]
+                    border border-white/[0.08]
+                    flex items-center justify-center 
+                    group-hover:scale-110 group-hover:border-white/[0.15]
+                    transition-all duration-500
+                  ">
+                    <division.icon className="w-6 h-6 text-white/70" />
+                  </div>
+                  <ArrowUpRight className="w-5 h-5 text-white/20 group-hover:text-white/60 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">{division.name}</h3>
+                <p className="text-white/40 text-sm leading-relaxed">{division.description}</p>
+              </GlassCard>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Premium CTA Section
+const CTASection = () => (
+  <section id="contact" className="relative bg-[#050505] py-32 overflow-hidden">
+    {/* Background gradient */}
+    <div className="absolute inset-0 bg-gradient-to-t from-white/[0.02] via-transparent to-transparent" />
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-white/[0.02] rounded-full blur-[150px]" />
+
+    <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <GlassCard className="p-12 md:p-16" hover={false}>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
+          Ready to Integrate?
+        </h2>
+        <p className="text-white/50 text-lg md:text-xl max-w-xl mx-auto mb-10 font-light">
+          Join the network of mines and manufacturers securing the future of critical materials.
+        </p>
+        <a 
+          href="mailto:info@quanticapital.org" 
+          className="
+            group inline-flex items-center gap-3 
+            bg-white text-black 
+            px-10 py-5 
+            rounded-full 
+            text-lg font-semibold 
+            shadow-[0_0_40px_rgba(255,255,255,0.25)]
+            hover:shadow-[0_0_60px_rgba(255,255,255,0.4)]
+            hover:scale-[1.03]
+            transition-all duration-300
+          "
+        >
+          Start the Conversation
+          <ArrowRight className="w-5 h-5 group-hover:translate-x-1.5 transition-transform duration-300" />
+        </a>
+      </GlassCard>
+    </div>
+  </section>
+);
+
+// Premium Footer
+const Footer = () => {
+  const footerLinks = {
+    divisions: [
+      { label: "Brokerage", href: "#brokerage" },
+      { label: "Logistics & Traceability", href: "#logistics" },
+      { label: "Hedging & Risk", href: "#hedging" },
+      { label: "Global Markets", href: "#markets" },
+    ],
+    resources: [
+      { label: "Material Catalog", href: "#materials" },
+      { label: "Industries", href: "#industries" },
+      { label: "Contact", href: "#contact" },
+    ],
+    contact: [
+      { label: "info@quanticapital.org", href: "mailto:info@quanticapital.org" },
+    ],
+  };
+
+  return (
+    <footer className="relative bg-[#030303] border-t border-white/[0.05] py-20 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Footer Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+          {/* Brand Column */}
+          <div className="col-span-2 md:col-span-1">
+            <QuantiLogo />
+            <p className="text-white/30 text-sm mt-6 leading-relaxed max-w-xs">
+              Breaking bottlenecks in critical materials trade. Integrating American resources into global supply chains.
             </p>
           </div>
-          
-          <div className="mt-16">
-            <a href="#divisions" className="inline-flex items-center text-sm font-medium group">
-              <span className="mr-2">Explore Our Divisions</span>
-              <ChevronDown className="group-hover:translate-y-1 transition-transform" size={16} />
+
+          {/* Divisions */}
+          <div>
+            <h4 className="text-white/60 font-semibold text-sm uppercase tracking-wider mb-5">Divisions</h4>
+            <ul className="space-y-3">
+              {footerLinks.divisions.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-white/40 text-sm hover:text-white transition-colors duration-300">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="text-white/60 font-semibold text-sm uppercase tracking-wider mb-5">Resources</h4>
+            <ul className="space-y-3">
+              {footerLinks.resources.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-white/40 text-sm hover:text-white transition-colors duration-300">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="text-white/60 font-semibold text-sm uppercase tracking-wider mb-5">Contact</h4>
+            <ul className="space-y-3">
+              {footerLinks.contact.map((link) => (
+                <li key={link.label}>
+                  <a href={link.href} className="text-white/40 text-sm hover:text-white transition-colors duration-300">
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <span className="text-white/20 text-sm">Response within 24 hours</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="flex flex-col md:flex-row items-center justify-between pt-10 border-t border-white/[0.05]">
+          <p className="text-white/20 text-sm">
+            © 2025 Quanti Capital. All rights reserved.
+          </p>
+          <div className="flex items-center gap-8 mt-4 md:mt-0">
+            <a href="#" className="text-white/30 text-sm hover:text-white/60 transition-colors duration-300">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-white/30 text-sm hover:text-white/60 transition-colors duration-300">
+              Terms of Service
             </a>
           </div>
         </div>
-      </section>
+      </div>
+    </footer>
+  );
+};
 
-      {/* Stats Section */}
-      <section className="py-20 px-6 lg:px-12 border-t border-zinc-200">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            <div>
-              <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Integrated Platform</div>
-              <div className="text-4xl font-light mb-2">4 Divisions</div>
-              <div className="text-sm text-zinc-600 font-light">Brokerage, Logistics, Hedging, Markets</div>
-            </div>
-            <div>
-              <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Global Reach</div>
-              <div className="text-4xl font-light mb-2">5 Continents</div>
-              <div className="text-sm text-zinc-600 font-light">Connecting mines to manufacturers worldwide</div>
-            </div>
-            <div>
-              <div className="text-sm text-zinc-500 uppercase tracking-wider mb-3">Mission</div>
-              <div className="text-4xl font-light mb-2">Strengthening Supply Chains of the Future</div>
-              <div className="text-sm text-zinc-600 font-light">We balance the supply chains of tomorrow by integrating American resources into global markets.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Quanti Section */}
-      <section className="py-24 px-6 lg:px-12 bg-black text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-4xl mb-16">
-            <h2 className="text-sm text-zinc-400 uppercase tracking-wider mb-6">Why Quanti</h2>
-            <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-              We offer services for companies in the critical mineral and rare earth space.
-            </h3>
-            <p className="text-xl text-zinc-300 font-light leading-relaxed">
-              Government programs and contractors are important, but they are not enough. Mines need offtake and manufacturers require diversified supply. Quanti sits in the middle: we structure relationships, line up compliant counterparties in friendly countries, and create a private-sector demand engine around strategic materials.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="border-l-2 border-zinc-700 pl-8">
-              <h4 className="text-2xl font-light mb-4">Alleviating Mine Offtake Challenges</h4>
-              <p className="text-zinc-300 font-light leading-relaxed mb-6">
-                Mines and processing plants want to run and expand operations, not locate end-users. We increase the value of these assets by building pipelines of qualified, long-term demand from OEMs, magnet makers, refiners, and strategic buyers – by helping translate technical product into tangible offtake.
-              </p>
-            </div>
-
-            <div className="border-l-2 border-zinc-700 pl-8">
-              <h4 className="text-2xl font-light mb-4">Integrating American Resources</h4>
-              <p className="text-zinc-300 font-light leading-relaxed mb-6">
-                The Western world needs secure access to critical materials, but mines also need help integrating those materials into established downstream supply chains. We close this gap by connecting mines, processors, and manufacturers through transparent, traceable, and compliant pathways.
-              </p>
-            </div>
-
-            <div className="border-l-2 border-zinc-700 pl-8">
-              <h4 className="text-2xl font-light mb-4">For Suppliers: Market Access & Control</h4>
-              <p className="text-zinc-300 font-light leading-relaxed">
-                We provide gateways to international markets while ensuring you maintain control over operations. We give access to private sector buyers across multiple regions and industries, reducing sole dependency on government programs.
-              </p>
-            </div>
-
-            <div className="border-l-2 border-zinc-700 pl-8">
-              <h4 className="text-2xl font-light mb-4">For Buyers: Diversified Supply</h4>
-              <p className="text-zinc-300 font-light leading-relaxed">
-                Access verified sources globally. Diversify your critical mineral and rare earth element supply, reducing concentration risk in an increasingly complex geopolitical landscape.
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-16 pt-16 border-t border-zinc-800">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-              <div>
-                <div className="text-5xl font-light mb-3">Balanced</div>
-                <div className="text-sm text-zinc-500 font-light">Giving suppliers control while diversifying buyer risks</div>
-              </div>
-              <div>
-                <div className="text-5xl font-light mb-3">Connected</div>
-                <div className="text-sm text-zinc-500 font-light">Integrating American Resources into global supply chains</div>
-              </div>
-              <div>
-                <div className="text-5xl font-light mb-3">Sustainable</div>
-                <div className="text-sm text-zinc-500 font-light">Market-driven demand beyond government programs</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Divisions Section */}
-      <section id="divisions" className="py-24 px-6 lg:px-12 bg-zinc-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Our Divisions</h2>
-            <h3 className="text-4xl md:text-5xl font-light leading-tight max-w-3xl">
-              Four divisions working together to serve the global critical mineral and rare earth element market.
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {divisions.map((division, index) => {
-              const Icon = division.icon;
-              return (
-                <a
-                  key={index}
-                  href={division.link}
-                  className="bg-white border border-zinc-200 p-8 hover:border-zinc-400 transition-all group"
-                >
-                  <div className="mb-6">
-                    <Icon className="text-zinc-400 group-hover:text-black transition-colors" size={36} strokeWidth={1.5} />
-                  </div>
-                  
-                  <h4 className="text-2xl font-light mb-2">{division.name}</h4>
-                  <div className="text-sm text-zinc-500 uppercase tracking-wider mb-4">{division.tagline}</div>
-                  
-                  <p className="text-zinc-600 font-light leading-relaxed mb-6">
-                    {division.description}
-                  </p>
-
-                  <ul className="space-y-2 mb-6">
-                    {division.highlights.map((highlight, i) => (
-                      <li key={i} className="text-sm text-zinc-600 flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="flex items-center text-sm font-medium group-hover:gap-2 transition-all">
-                    Learn More
-                    <ArrowRight className="ml-1 group-hover:translate-x-1 transition-transform" size={16} />
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Brokerage Deep Dive */}
-      <section id="brokerage" className="py-24 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Brokerage Services</h2>
-              <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-                Balancing supply and demand in critical markets.
-              </h3>
-              <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
-                As new mines and processing plants come online, matching demand with supply becomes critical. We help balance the market by identifying offtake opportunities, integrating suppliers with qualified end-users, and ensuring all counterparties meet compliance standards in United States friendly countries.
-              </p>
-
-              <div className="space-y-6">
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">Diversified Offtake Solutions</h4>
-                  <p className="text-sm text-zinc-600 font-light">Securing multiple offtake agreements across different end-users, regions, and industries to create stable, long-term demand for mine production.</p>
-                </div>
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">Private Sector Integration</h4>
-                  <p className="text-sm text-zinc-600 font-light">Connecting mines directly with OEMs, refiners, magnet makers, and manufacturers who need materials for actual production—not just government stockpiles.</p>
-                </div>
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">Compliant Partnerships</h4>
-                  <p className="text-sm text-zinc-600 font-light">All counterparties are vetted for compliance and located in friendly countries, ensuring transparent, traceable, and sustainable supply chains.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="bg-zinc-50 border border-zinc-200 p-8 mb-8">
-                <h4 className="text-xl font-light mb-6">Our Process</h4>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <div className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mr-4 font-light">1</div>
-                    <div>
-                      <div className="font-light mb-1">Market Analysis & Opportunity Identification</div>
-                      <div className="text-sm text-zinc-600 font-light">Understanding supply coming online and matching with demand gaps</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mr-4 font-light">2</div>
-                    <div>
-                      <div className="font-light mb-1">Counterparty Vetting & Compliance</div>
-                      <div className="text-sm text-zinc-600 font-light">Ensuring all parties meet regulatory, ESG, and geographic requirements</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mr-4 font-light">3</div>
-                    <div>
-                      <div className="font-light mb-1">Preliminary Offtake Structuring</div>
-                      <div className="text-sm text-zinc-600 font-light">Structuring agreements that work for both suppliers and buyers</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <div className="bg-black text-white w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mr-4 font-light">4</div>
-                    <div>
-                      <div className="font-light mb-1">Integration & Execution</div>
-                      <div className="text-sm text-zinc-600 font-light">Facilitating relationships and supporting ongoing trade</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-zinc-50 border border-zinc-200 p-8">
-                <h4 className="text-xl font-light mb-4">Who We Serve</h4>
-                <div className="space-y-4">
-                  <div>
-                    <div className="text-sm text-zinc-500 uppercase tracking-wider mb-1">For Mines & Processors</div>
-                    <p className="text-sm text-zinc-600 font-light">Pipelines of qualified long-term buyers in private sector and established markets</p>
-                  </div>
-                  <div>
-                    <div className="text-sm text-zinc-500 uppercase tracking-wider mb-1">For Manufacturers</div>
-                    <p className="text-sm text-zinc-600 font-light">Diversified, verified supply sources reducing single-supplier concentration risk</p>
-                  </div>
-                  <div>
-                    <div className="text-sm text-zinc-500 uppercase tracking-wider mb-1">For Strategic Buyers</div>
-                    <p className="text-sm text-zinc-600 font-light">Access to emerging supply from compliant sources in friendly jurisdictions</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Logistics Deep Dive */}
-      <section id="logistics" className="py-24 px-6 lg:px-12 bg-black text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-sm text-zinc-400 uppercase tracking-wider mb-6">Logistics</h2>
-            <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8 max-w-3xl">
-              Moving critical materials with complete transparency and traceability.
-            </h3>
-            <p className="text-xl text-zinc-300 font-light leading-relaxed max-w-3xl">
-              We provide specialized freight brokerage for critical materials transportation and work with any traceability system the parties prefer—integrating mines, processing facilities, software partners, and end-users to track materials from source to destination.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <div className="bg-zinc-900 border border-zinc-800 p-8 mb-8">
-                <h4 className="text-xl font-light mb-6">Freight Brokerage Services</h4>
-                <div className="space-y-6">
-                  <div className="flex items-start">
-                    <Truck className="mr-4 flex-shrink-0 text-zinc-500 mt-1" size={20} />
-                    <div>
-                      <div className="font-light mb-1">Mine-to-Processing</div>
-                      <div className="text-sm text-zinc-400 font-light">Transporting raw materials from extraction sites to processing facilities</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Package className="mr-4 flex-shrink-0 text-zinc-500 mt-1" size={20} />
-                    <div>
-                      <div className="font-light mb-1">Processing-to-Manufacturing</div>
-                      <div className="text-sm text-zinc-400 font-light">Delivering refined materials to end manufacturers</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Anchor className="mr-4 flex-shrink-0 text-zinc-500 mt-1" size={20} />
-                    <div>
-                      <div className="font-light mb-1">International Freight Brokerage</div>
-                      <div className="text-sm text-zinc-400 font-light">Managing customs, documentation, and compliance</div>
-                    </div>
-                  </div>
-                  <div className="flex items-start">
-                    <Shield className="mr-4 flex-shrink-0 text-zinc-500 mt-1" size={20} />
-                    <div>
-                      <div className="font-light mb-1">Secure Handling Protocols</div>
-                      <div className="text-sm text-zinc-400 font-light">Protecting high-value critical materials in transit</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="bg-zinc-900 border border-zinc-800 p-8">
-                <h4 className="text-xl font-light mb-6">Flexible Traceability Integration</h4>
-                <p className="text-zinc-300 font-light mb-6">
-                  We work with any traceability application the parties prefer. Whether you have an existing system or need help selecting one, we integrate seamlessly with your chosen platform to provide end-to-end supply chain visibility.
-                </p>
-                <div className="space-y-4">
-                  <div className="border-l-2 border-zinc-700 pl-4">
-                    <div className="text-sm font-light mb-1">Your Choice of Platform</div>
-                    <p className="text-sm text-zinc-400 font-light">We don't lock you into proprietary systems—use the traceability software that works best for your operations</p>
-                  </div>
-                  <div className="border-l-2 border-zinc-700 pl-4">
-                    <div className="text-sm font-light mb-1">Seamless Integration</div>
-                    <p className="text-sm text-zinc-400 font-light">Our team coordinates with software providers and data partners to ensure smooth implementation</p>
-                  </div>
-                  <div className="border-l-2 border-zinc-700 pl-4">
-                    <div className="text-sm font-light mb-1">Complete Visibility</div>
-                    <p className="text-sm text-zinc-400 font-light">Track materials from mine to end-user with full chain of custody documentation</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border-t border-zinc-800 pt-16 mt-16">
-            <div className="mb-12">
-              <h3 className="text-3xl md:text-4xl font-light leading-tight mb-6">
-                Traceability Partnership Ecosystem
-              </h3>
-              <p className="text-xl text-zinc-300 font-light leading-relaxed max-w-3xl">
-                Complete supply chain traceability requires coordination across multiple parties. We facilitate partnerships between mines, processing, technology providers, and end-users to create transparent, compliant supply chains.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-zinc-900 p-6 border border-zinc-800">
-                <div className="text-lg font-light mb-3">Mines</div>
-                <p className="text-sm text-zinc-400 font-light">
-                  Source verification and extraction documentation at point of origin
-                </p>
-              </div>
-              <div className="bg-zinc-900 p-6 border border-zinc-800">
-                <div className="text-lg font-light mb-3">Processing Facilities</div>
-                <p className="text-sm text-zinc-400 font-light">
-                  Clear communication and transparency in any change of the material
-                </p>
-              </div>
-              <div className="bg-zinc-900 p-6 border border-zinc-800">
-                <div className="text-lg font-light mb-3">Software Partners</div>
-                <p className="text-sm text-zinc-400 font-light">
-                  Digital tracking platforms for real-time material movement and chain of custody
-                </p>
-              </div>
-              <div className="bg-zinc-900 p-6 border border-zinc-800">
-                <div className="text-lg font-light mb-3">End-Users</div>
-                <p className="text-sm text-zinc-400 font-light">
-                  Complete visibility into material provenance and compliance verification
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-12 bg-zinc-900 border border-zinc-800 p-8">
-              <h4 className="text-xl font-light mb-4">Why Traceability Matters</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                  <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Regulatory Compliance</div>
-                  <p className="text-sm text-zinc-300 font-light">Meeting ESG requirements, conflict mineral regulations, and international standards</p>
-                </div>
-                <div>
-                  <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Supply Chain Integrity</div>
-                  <p className="text-sm text-zinc-300 font-light">Preventing fraud, ensuring authenticity, and maintaining quality throughout the chain.</p>
-                </div>
-                <div>
-                  <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Market Access</div>
-                  <p className="text-sm text-zinc-300 font-light">Enabling access to premium markets that require verified sustainable sourcing</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Hedging Deep Dive */}
-      <section id="hedging" className="py-24 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Hedging</h2>
-              <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-                Partnering with FCMs to manage price risk.
-              </h3>
-              <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
-                We understand critical minerals and rare earth markets face significant price volatility. Many of these markets are illiquid and some do not yet exist. That is why Quanti partners with Futures Commission Merchants (FCMs) to provide comprehensive hedging solutions that help both buyers and sellers manage price risk and market uncertainties.
-              </p>
-
-              <div className="space-y-6">
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">FCM Partnerships</h4>
-                  <p className="text-sm text-zinc-600 font-light">Working with established Futures Commission Merchants to access commodity markets and hedging instruments for critical minerals and rare earths.</p>
-                </div>
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">Price Protection</h4>
-                  <p className="text-sm text-zinc-600 font-light">Helping members in the supply chain lock in favorable prices for future production and helping secure predictable costs for material inputs.</p>
-                </div>
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">Volatility Management</h4>
-                  <p className="text-sm text-zinc-600 font-light">Strategies to manage market swings and reduce exposure to dramatic price fluctuations in critical mineral markets.</p>
-                </div>
-              </div>
-            </div>
-
-            <div>
-              <div className="bg-zinc-50 border border-zinc-200 p-8 mb-8">
-                <h4 className="text-xl font-light mb-6">Hedging Solutions</h4>
-                <div className="space-y-6">
-                  <div>
-                    <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">For Sellers (Mines)</div>
-                    <p className="text-sm text-zinc-600 font-light mb-3">
-                      Protect against falling prices and secure revenue certainty for planned production. Lock in attractive prices when markets are favorable.
-                    </p>
-                    <ul className="text-sm text-zinc-600 space-y-1">
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light">Forward price agreements</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light">Production-linked hedging programs</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light">Downside protection strategies</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="border-t border-zinc-200 pt-6">
-                    <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">For Buyers (Manufacturers)</div>
-                    <p className="text-sm text-zinc-600 font-light mb-3">
-                      Manage rising input costs and budget with certainty. Protect margins when commodity prices spike unexpectedly.
-                    </p>
-                    <ul className="text-sm text-zinc-600 space-y-1">
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light">Fixed-price supply agreements</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light">Upside cost protection</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light">Budget certainty for procurement</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-zinc-50 border border-zinc-200 p-8">
-                <h4 className="text-xl font-light mb-4">Why Hedge Critical Materials?</h4>
-                <p className="text-sm text-zinc-600 font-light mb-4">
-                  Critical materials markets can experience dramatic price swings driven by geopolitics, supply disruptions, and demand surges. Hedging provides stability in uncertain markets.
-                </p>
-                <div className="text-xs text-zinc-500 font-light italic">
-                  Note: All hedging activities conducted through licensed FCM partners. Quanti facilitates relationships and structures but does not directly engage in commodity trading.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Markets Deep Dive */}
-      <section id="markets" className="py-24 px-6 lg:px-12 bg-zinc-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div className="order-2 lg:order-1">
-              <div className="bg-white border border-zinc-200 p-8">
-                <h4 className="text-xl font-light mb-6">Global Operations</h4>
-                
-                <div className="space-y-6 mb-8">
-                  <div>
-                    <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">Regional Focus</div>
-                    <div className="font-light mb-4">Connecting four major markets:</div>
-                    <ul className="space-y-2 text-sm text-zinc-600">
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>Europe:</strong> Manufacturing hubs, renewable energy sector</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>Asia:</strong> Electronics, automotive, technology industries</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>Americas:</strong> Defense, aerospace, clean energy sectors</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>Africa:</strong> Telecommunications, Healthcare, emerging sectors</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <div className="text-sm text-zinc-500 uppercase tracking-wider mb-2">African Operations</div>
-                    <div className="font-light mb-4">Deep expertise in key mining regions:</div>
-                    <ul className="space-y-2 text-sm text-zinc-600">
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>Zambia:</strong> Copper belt operations</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>Angola:</strong> Emerging logistics center hub</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>DRC:</strong> Cobalt, copper, tantalum</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>Tanzania:</strong> Rare earths, graphite</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-zinc-400 mr-2">•</span>
-                        <span className="font-light"><strong>South Africa:</strong> Platinum group metals, manganese</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="pt-6 border-t border-zinc-200">
-                  <div className="text-sm text-zinc-600 font-light">
-                    <strong className="text-black font-medium">Integrating Western Markets:</strong> We connect American mineral resources with manufacturing companies, creating transparent supply chains that serve the private sector and reduce dependency on single-source suppliers.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Markets</h2>
-              <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8">
-                Connecting global markets to Western resources.
-              </h3>
-              <p className="text-lg text-zinc-600 font-light leading-relaxed mb-8">
-                With operations spanning Europe, Asia, Africa, and the Americas, we integrate Western markets into critical material supply chains and visa versa.
-              </p>
-
-              <div className="space-y-6">
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">Western Market Integration</h4>
-                  <p className="text-sm text-zinc-600 font-light">Creating pathways for European, Asian, and American manufacturers to access critical materials through transparent, traceable supply chains.
-                  </p>
-                </div>
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">Local Partnerships</h4>
-                  <p className="text-sm text-zinc-600 font-light">On-the-ground presence and relationships in key African mining regions, ensuring quality, compliance, and sustainable practices.
-                  </p>
-                </div>
-                <div className="border-l-2 border-zinc-300 pl-6">
-                  <h4 className="text-xl font-light mb-2">Cross-Continental Networks</h4>
-                  <p className="text-sm text-zinc-600 font-light">Connecting mines to manufacturers across five continents, creating resilient supply chains that withstand geopolitical uncertainties.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Market-Driven Demand Section */}
-      <section className="py-24 px-6 lg:px-12 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Market-Driven Demand</h2>
-            <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8 max-w-3xl">
-              Creating more demand past the government programs.
-            </h3>
-            <p className="text-xl text-zinc-600 font-light leading-relaxed max-w-3xl">
-              Government stockpile programs and contractor purchases are important, but mines need sustainable revenue from commercial buyers. We connect suppliers directly with manufacturers who need critical materials for actual production.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-zinc-50 border border-zinc-200 p-8">
-              <div className="text-lg font-light mb-4">Electric Vehicle & Battery Manufacturers</div>
-              <p className="text-sm text-zinc-600 font-light mb-4">
-                Massive demand for lithium, cobalt, nickel, graphite, and rare earths from EV and battery production
-              </p>
-              <div className="text-xs text-zinc-500 font-light">Key materials: Li, Co, Ni, graphite, REEs</div>
-            </div>
-
-            <div className="bg-zinc-50 border border-zinc-200 p-8">
-              <div className="text-lg font-light mb-4">Semiconductor & Electronics Companies</div>
-              <p className="text-sm text-zinc-600 font-light mb-4">
-                High-purity gallium, germanium, and rare earths essential for chip manufacturing and electronics
-              </p>
-              <div className="text-xs text-zinc-500 font-light">Key materials: Ga, Ge, REEs</div>
-            </div>
-
-            <div className="bg-zinc-50 border border-zinc-200 p-8">
-              <div className="text-lg font-light mb-4">Defense & Aerospace Contractors</div>
-              <p className="text-sm text-zinc-600 font-light mb-4">
-                Tungsten, titanium, and rare earths for defense systems, aircraft, and advanced applications
-              </p>
-              <div className="text-xs text-zinc-500 font-light">Key materials: W, Ti, REEs</div>
-            </div>
-
-            <div className="bg-zinc-50 border border-zinc-200 p-8">
-              <div className="text-lg font-light mb-4">Renewable Energy Manufacturers</div>
-              <p className="text-sm text-zinc-600 font-light mb-4">
-                Rare earths for wind turbine magnets, solar components, and energy storage systems
-              </p>
-              <div className="text-xs text-zinc-500 font-light">Key materials: REEs, Li, Co</div>
-            </div>
-
-            <div className="bg-zinc-50 border border-zinc-200 p-8">
-              <div className="text-lg font-light mb-4">Industrial Manufacturing</div>
-              <p className="text-sm text-zinc-600 font-light mb-4">
-                Copper, antimony, titanium for industrial equipment, infrastructure, and manufacturing processes
-              </p>
-              <div className="text-xs text-zinc-500 font-light">Key materials: Cu, Sb, Ti</div>
-            </div>
-
-            <div className="bg-zinc-50 border border-zinc-200 p-8">
-              <div className="text-lg font-light mb-4">Magnet & Refiner Specialists</div>
-              <p className="text-sm text-zinc-600 font-light mb-4">
-                Specialized processors converting rare earths and critical materials into high-value products
-              </p>
-              <div className="text-xs text-zinc-500 font-light">Key materials: REEs, PGMs, specialty metals</div>
-            </div>
-          </div>
-
-          <div className="mt-16 bg-black text-white p-12">
-            <div className="max-w-3xl">
-              <h4 className="text-2xl font-light mb-6">The Result: Sustainable, Market-Driven Revenue</h4>
-              <p className="text-lg text-zinc-300 font-light leading-relaxed">
-                By connecting mines with manufacturers who need materials for production—not just government reserves—we create stable, long-term demand that supports mining operations and supply chain resilience.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Critical Materials Grid */}
-      <section id="materials" className="py-24 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-sm text-zinc-500 uppercase tracking-wider mb-6">Critical Materials</h2>
-          <h3 className="text-4xl md:text-5xl font-light leading-tight mb-8 max-w-3xl">
-            Essential elements for technology, defense, and clean energy.
-          </h3>
-          <p className="text-xl text-zinc-600 font-light leading-relaxed max-w-3xl mb-16">
-            We specialize in materials designated as critical by major economies due to their economic importance and supply risk.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-zinc-200">
-            {[
-              { name: 'Rare Earth Elements', subtitle: 'Nd, Pr, Dy, Tb, and others' },
-              { name: 'Copper', subtitle: 'High-grade and specialty' },
-              { name: 'Tungsten', subtitle: 'APT, concentrate, alloys' },
-              { name: 'Titanium', subtitle: 'Sponge, rutile, alloys' },
-              { name: 'Gallium', subtitle: 'High-purity semiconductor' },
-              { name: 'Germanium', subtitle: 'Optical and electronic' },
-              { name: 'Antimony', subtitle: 'Metal and compounds' },
-              { name: 'Lithium', subtitle: 'Carbonate, hydroxide, metal' },
-              { name: 'Cobalt', subtitle: 'Metal and compounds' },
-              { name: 'Nickel', subtitle: 'Class 1 and sulfate' },
-              { name: 'Graphite', subtitle: 'Natural and synthetic' },
-              { name: 'Tantalum', subtitle: 'Concentrate and powder' }
-            ].map((material, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 hover:bg-zinc-50 transition-colors group cursor-default"
-              >
-                <div className="text-base font-light mb-1 group-hover:text-zinc-600 transition-colors">
-                  {material.name}
-                </div>
-                <div className="text-xs text-zinc-500">{material.subtitle}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form Section */}
-      <section id="contact" className="py-24 px-6 lg:px-12 bg-zinc-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <ContactFormComponent />
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-zinc-200 py-12 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-12 mb-12">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <span className="text-xl font-light tracking-tight">QUANTI</span>
-                <QuantiSymbol className="h-5 w-5" />
-                <span className="text-xl font-light tracking-tight">CAPITAL</span>
-              </div>
-              <p className="text-sm text-zinc-600 font-light mb-6">
-                A company connecting American resources and end-users of critical minerals and rare earths.
-              </p>
-              <div className="text-sm text-zinc-600 font-light">
-                <div>info@quanticapital.org</div>
-                <div className="mt-1">Global Operations</div>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="text-sm font-medium mb-4">Quanti Capital</h4>
-              <ul className="space-y-2 text-sm text-zinc-600">
-                <li><a href="#" className="hover:text-black transition-colors">Brokerage Services</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Preliminary Offtake Structuring</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Market Intelligence</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Buyer-Seller Matching</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-medium mb-4">Logistics</h4>
-              <ul className="space-y-2 text-sm text-zinc-600">
-                <li><a href="#" className="hover:text-black transition-colors">Freight Brokerage</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Traceability Solutions</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Mine Transportation</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Supply Chain Integration</a></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-sm font-medium mb-4">Hedging</h4>
-              <ul className="space-y-2 text-sm text-zinc-600">
-                <li><a href="#" className="hover:text-black transition-colors">FCM Partnerships</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Price Risk Management</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Buyer Solutions</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Seller Programs</a></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="text-sm font-medium mb-4">Markets</h4>
-              <ul className="space-y-2 text-sm text-zinc-600">
-                <li><a href="#" className="hover:text-black transition-colors">African Operations</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">European Markets</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Asian Markets</a></li>
-                <li><a href="#" className="hover:text-black transition-colors">Americas</a></li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-zinc-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-zinc-500">
-            <p>&copy; 2024 Quanti Capital. All rights reserved.</p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-black transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-black transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-black transition-colors">Compliance</a>
-            </div>
-          </div>
-        </div>
-      </footer>
+// Main App Component
+export default function App() {
+  return (
+    <div className="min-h-screen bg-[#050505] font-sans antialiased selection:bg-white/20 selection:text-white">
+      <Header />
+      <main>
+        <HeroSection />
+        <PlatformSection />
+        <DivisionsSection />
+        <CTASection />
+      </main>
+      <Footer />
     </div>
   );
 }
