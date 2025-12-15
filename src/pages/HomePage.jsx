@@ -1,7 +1,182 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { ArrowRight, ArrowUpRight, Link, Truck, BarChart3, MapPin, ChevronDown } from 'lucide-react';
 import { Link as RouterLink } from 'react-router-dom';
 import { GlassCard, QuantiLogo, CommodityTicker, Header, Footer } from '../components/shared';
+
+// Trading hub locations - includes African mining centers, Orlando, and global hubs
+const tradingHubs = [
+  // Americas
+  { name: 'Orlando', x: 195, y: 165, delay: 0, accent: true },
+  { name: 'Houston', x: 175, y: 170, delay: 0.2 },
+  { name: 'Vancouver', x: 115, y: 115, delay: 0.4 },
+  { name: 'São Paulo', x: 260, y: 320, delay: 0.6 },
+  // Europe
+  { name: 'London', x: 455, y: 115, delay: 0.8 },
+  { name: 'Rotterdam', x: 465, y: 108, delay: 1.0 },
+  // Africa - Mining Centers
+  { name: 'Lusaka', x: 510, y: 295, delay: 1.2, accent: true },      // Zambia - Copper Belt
+  { name: 'Kitwe', x: 505, y: 285, delay: 1.4, accent: true },       // Zambia - Copper mining
+  { name: 'Lubumbashi', x: 508, y: 275, delay: 1.6, accent: true },  // DRC - Cobalt/Copper
+  { name: 'Kolwezi', x: 498, y: 270, delay: 1.8, accent: true },     // DRC - Cobalt capital
+  { name: 'Johannesburg', x: 510, y: 330, delay: 2.0 },
+  { name: 'Lagos', x: 448, y: 215, delay: 2.2 },
+  { name: 'Dar es Salaam', x: 540, y: 265, delay: 2.4 },             // Tanzania
+  { name: 'Luanda', x: 465, y: 270, delay: 2.6 },                    // Angola
+  // Middle East & Asia
+  { name: 'Dubai', x: 585, y: 185, delay: 2.8 },
+  { name: 'Singapore', x: 705, y: 235, delay: 3.0 },
+  { name: 'Shanghai', x: 745, y: 155, delay: 3.2 },
+  { name: 'Tokyo', x: 805, y: 135, delay: 3.4 },
+  { name: 'Perth', x: 735, y: 345, delay: 3.6 },
+];
+
+// Trade routes - connecting mining centers to global markets
+const tradeRoutes = [
+  // Orlando/US to Europe
+  { path: "M 195 165 Q 330 90 455 115", delay: 0 },
+  // Europe to Asia
+  { path: "M 465 108 Q 580 100 745 155", delay: 1 },
+  // Zambia Copper Belt to South Africa
+  { path: "M 505 285 Q 510 310 510 330", delay: 2, accent: true },
+  // Zambia to Dar es Salaam (export route)
+  { path: "M 510 295 Q 530 280 540 265", delay: 2.5, accent: true },
+  // DRC to Europe (via Africa)
+  { path: "M 498 270 Q 470 200 455 115", delay: 3, accent: true },
+  // South Africa to Asia
+  { path: "M 510 330 Q 620 300 705 235", delay: 4 },
+  // Asia to Australia
+  { path: "M 705 235 Q 725 290 735 345", delay: 5 },
+  // Pacific route - Americas to Asia
+  { path: "M 115 115 Q 420 40 745 155", delay: 6, isLong: true },
+  // Angola to Brazil
+  { path: "M 465 270 Q 360 290 260 320", delay: 7 },
+  // Tanzania to Dubai
+  { path: "M 540 265 Q 570 220 585 185", delay: 8 },
+];
+
+// Simplified continent paths
+const continents = {
+  northAmerica: "M 100 90 Q 140 70 200 80 L 260 110 Q 300 140 280 180 L 230 210 Q 170 230 140 200 L 100 150 Q 80 120 100 90",
+  southAmerica: "M 210 230 Q 240 215 270 240 L 290 300 Q 300 350 270 400 L 230 420 Q 190 400 200 350 L 215 290 Q 200 260 210 230",
+  europe: "M 430 90 Q 480 75 530 90 L 560 115 Q 575 145 550 160 L 485 175 Q 445 160 430 130 L 430 90",
+  africa: "M 430 175 Q 490 160 540 185 L 565 245 Q 580 310 545 370 L 490 395 Q 430 380 415 310 L 400 240 Q 400 195 430 175",
+  asia: "M 560 65 Q 640 40 740 50 L 830 90 Q 880 130 850 185 L 780 225 Q 710 250 640 220 L 580 180 Q 530 140 560 85 L 560 65",
+  australia: "M 725 305 Q 775 290 820 315 L 845 355 Q 860 395 820 410 L 755 420 Q 705 405 720 355 L 725 305",
+};
+
+// Interactive World Map Background Component - Full page monochromatic
+const WorldMapBackground = memo(() => (
+  <div className="w-screen h-screen pointer-events-none overflow-hidden">
+    <svg
+      viewBox="0 0 950 600"
+      className="w-full h-full"
+      preserveAspectRatio="xMidYMid slice"
+      style={{ minWidth: '100vw', minHeight: '100vh' }}
+    >
+      <defs>
+        <filter id="hub-glow" x="-100%" y="-100%" width="300%" height="300%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <filter id="route-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="1.5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <linearGradient id="route-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.01)" />
+          <stop offset="50%" stopColor="rgba(255,255,255,0.06)" />
+          <stop offset="100%" stopColor="rgba(255,255,255,0.01)" />
+        </linearGradient>
+        <linearGradient id="accent-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="rgba(255,255,255,0.01)" />
+          <stop offset="50%" stopColor="rgba(255,255,255,0.08)" />
+          <stop offset="100%" stopColor="rgba(255,255,255,0.01)" />
+        </linearGradient>
+      </defs>
+
+      {/* Continent outlines - subtle monochrome */}
+      <g className="continents">
+        {Object.entries(continents).map(([name, path]) => (
+          <path
+            key={name}
+            d={path}
+            fill="rgba(255,255,255,0.015)"
+            stroke="rgba(255,255,255,0.03)"
+            strokeWidth="0.5"
+          />
+        ))}
+      </g>
+
+      {/* Animated trade routes - monochrome */}
+      <g className="trade-routes">
+        {tradeRoutes.map((route, index) => (
+          <path
+            key={index}
+            d={route.path}
+            fill="none"
+            stroke={route.accent ? "url(#accent-gradient)" : "url(#route-gradient)"}
+            strokeWidth={route.isLong ? "0.5" : "0.75"}
+            strokeLinecap="round"
+            filter="url(#route-glow)"
+            className="animate-trade-flow"
+            style={{
+              strokeDasharray: route.isLong ? '10, 18' : '6, 12',
+              animationDuration: route.isLong ? '20s' : '14s',
+              animationDelay: `${route.delay * 0.4}s`,
+            }}
+          />
+        ))}
+      </g>
+
+      {/* Trading hub dots - monochrome white only */}
+      <g className="trading-hubs">
+        {tradingHubs.map((hub) => (
+          <g key={hub.name}>
+            {/* Outer pulse ring */}
+            <circle
+              cx={hub.x}
+              cy={hub.y}
+              r="8"
+              fill="none"
+              stroke={hub.accent ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.04)"}
+              strokeWidth="0.5"
+              className="animate-hub-ring"
+              style={{ animationDelay: `${hub.delay}s` }}
+            />
+            {/* Inner glowing dot */}
+            <circle
+              cx={hub.x}
+              cy={hub.y}
+              r={hub.accent ? "2.5" : "1.5"}
+              fill={hub.accent ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.3)"}
+              filter="url(#hub-glow)"
+              className="animate-hub-pulse"
+              style={{ animationDelay: `${hub.delay}s` }}
+            />
+          </g>
+        ))}
+      </g>
+
+      {/* Subtle grid overlay for tech feel */}
+      <g className="grid-overlay opacity-[0.008]">
+        {[...Array(15)].map((_, i) => (
+          <line key={`h-${i}`} x1="0" y1={i * 42} x2="950" y2={i * 42} stroke="white" strokeWidth="0.3" />
+        ))}
+        {[...Array(24)].map((_, i) => (
+          <line key={`v-${i}`} x1={i * 42} y1="0" x2={i * 42} y2="600" stroke="white" strokeWidth="0.3" />
+        ))}
+      </g>
+    </svg>
+  </div>
+));
+
+WorldMapBackground.displayName = 'WorldMapBackground';
 
 // Animated typing effect for hero
 const TypewriterText = ({ words, className }) => {
@@ -55,7 +230,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden bg-[#050505]">
+    <section className="relative min-h-screen flex flex-col overflow-hidden bg-transparent">
       {/* Interactive Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.04)_0%,transparent_60%)]" />
@@ -152,7 +327,7 @@ export const HeroSection = () => {
 
 // Stats Section with enhanced styling
 export const StatsSection = () => (
-  <section className="relative bg-[#050505] py-16 sm:py-20 md:py-28 overflow-hidden border-t border-white/[0.06]">
+  <section className="relative bg-transparent py-16 sm:py-20 md:py-28 overflow-hidden border-t border-white/[0.06]">
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         <GlassCard className="p-6 sm:p-8 md:p-10 text-center" glow>
@@ -177,7 +352,7 @@ export const StatsSection = () => (
 
 // Why Quanti Section with enhanced styling
 export const WhyQuantiSection = () => (
-  <section className="relative bg-[#050505] py-16 sm:py-20 md:py-28 overflow-hidden">
+  <section className="relative bg-transparent py-16 sm:py-20 md:py-28 overflow-hidden">
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <div className="text-center mb-10 sm:mb-16">
         <p className="text-white/50 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-4 sm:mb-6">WHY QUANTI</p>
@@ -226,7 +401,7 @@ export const WhyQuantiSection = () => (
 
 // Three Pillars Section with enhanced styling
 export const PillarsSection = () => (
-  <section className="relative bg-[#050505] py-16 sm:py-20 md:py-28 overflow-hidden border-t border-white/[0.06]">
+  <section className="relative bg-transparent py-16 sm:py-20 md:py-28 overflow-hidden border-t border-white/[0.06]">
     <div className="max-w-6xl mx-auto px-4 sm:px-6">
       <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
         <GlassCard className="p-6 sm:p-8 md:p-10 text-center">
@@ -304,7 +479,7 @@ export const DivisionsPreviewSection = () => {
   ];
 
   return (
-    <section id="divisions" className="relative bg-[#050505] py-16 sm:py-20 md:py-28 overflow-hidden border-t border-white/[0.06]">
+    <section id="divisions" className="relative bg-transparent py-16 sm:py-20 md:py-28 overflow-hidden border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10 sm:mb-16">
           <p className="text-white/50 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-4 sm:mb-5">OUR DIVISIONS</p>
@@ -348,7 +523,7 @@ export const DivisionsPreviewSection = () => {
 
 // Premium CTA Section with enhanced effects
 export const CTASection = () => (
-  <section className="relative bg-[#050505] py-20 sm:py-28 md:py-36 overflow-hidden">
+  <section className="relative bg-transparent py-20 sm:py-28 md:py-36 overflow-hidden">
     <div className="absolute inset-0 bg-gradient-to-t from-white/[0.025] via-transparent to-transparent" />
     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] md:w-[1000px] h-[300px] sm:h-[400px] md:h-[500px] bg-gradient-radial from-white/[0.03] to-transparent rounded-full blur-[180px]" />
 
@@ -375,15 +550,23 @@ export const CTASection = () => (
 // Home Page Component
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#050505]">
-      <Header />
-      <HeroSection />
-      <StatsSection />
-      <WhyQuantiSection />
-      <PillarsSection />
-      <DivisionsPreviewSection />
-      <CTASection />
-      <Footer />
+    <div className="min-h-screen bg-[#050505] relative">
+      {/* World Map Background - spans entire page */}
+      <div className="fixed inset-0 z-0">
+        <WorldMapBackground />
+      </div>
+      
+      {/* Page content */}
+      <div className="relative z-10">
+        <Header />
+        <HeroSection />
+        <StatsSection />
+        <WhyQuantiSection />
+        <PillarsSection />
+        <DivisionsPreviewSection />
+        <CTASection />
+        <Footer />
+      </div>
     </div>
   );
 }
