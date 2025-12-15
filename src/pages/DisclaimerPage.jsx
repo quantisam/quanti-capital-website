@@ -5,7 +5,7 @@ import { PageHeader, Footer, GradientOrbs, GlassCard } from '../components/share
 const sections = [
   {
     title: "1. General Disclaimer",
-    content: `The information contained on this website and in any materials provided by Quanti Capital Corp. ("Quanti Capital," "we," "us," or "our"), a Florida corporation, is for general informational purposes only. Nothing on this website constitutes, or is intended to constitute, financial, investment, legal, tax, or other professional advice.
+    content: `The information contained on this website and in any materials provided by Quanti Capital LLC ("Quanti Capital," "we," "us," or "our"), a Florida limited liability company, is for general informational purposes only. Nothing on this website constitutes, or is intended to constitute, financial, investment, legal, tax, or other professional advice.
 
 You should not act or refrain from acting based on any information on this website without first seeking independent professional advice from a qualified advisor who is aware of your particular circumstances. Your use of this website and reliance on any information herein is solely at your own risk.
 
@@ -126,7 +126,7 @@ Our total liability shall not exceed the amount you paid us in the twelve (12) m
     title: "11. Contact Information",
     content: `If you have questions about this Disclaimer, please contact us at:
 
-**Quanti Capital Corp.**
+**Quanti Capital LLC**
 Winter Park, Florida 32789
 United States
 Email: legal@quanticapital.com

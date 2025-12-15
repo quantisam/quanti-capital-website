@@ -4,7 +4,7 @@ import { PageHeader, Footer, GradientOrbs, GlassCard } from '../components/share
 const sections = [
   {
     title: "1. Agreement to Terms",
-    content: `These Terms of Service ("Terms") constitute a legally binding agreement between you ("you," "your," or "User") and Quanti Capital Corp. ("Quanti Capital," "we," "us," or "our"), a Florida corporation with its principal place of business in Winter Park, Florida, governing your access to and use of our website, platform, and services.
+    content: `These Terms of Service ("Terms") constitute a legally binding agreement between you ("you," "your," or "User") and Quanti Capital LLC ("Quanti Capital," "we," "us," or "our"), a Florida limited liability company with its principal place of business in Winter Park, Florida, governing your access to and use of our website, platform, and services.
 
 By accessing our website or using our services, you represent that you have the legal capacity to enter into these Terms and agree to be bound by them. If you are accessing our services on behalf of an organization, you represent that you have the authority to bind that organization to these Terms.
 
@@ -143,7 +143,7 @@ Any legal action or proceeding arising out of or relating to these Terms shall b
     title: "13. Contact Information",
     content: `For questions about these Terms, please contact us at:
 
-**Quanti Capital Corp.**
+**Quanti Capital LLC**
 Winter Park, Florida 32789
 United States
 Email: legal@quanticapital.com`

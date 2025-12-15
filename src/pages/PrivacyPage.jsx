@@ -4,7 +4,7 @@ import { PageHeader, Footer, GradientOrbs, GlassCard } from '../components/share
 const sections = [
   {
     title: "1. Introduction",
-    content: `Quanti Capital Corp. ("Quanti Capital," "we," "us," or "our"), a Florida corporation with its principal place of business in Winter Park, Florida, is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website, use our services, or otherwise interact with us.
+    content: `Quanti Capital LLC ("Quanti Capital," "we," "us," or "our"), a Florida limited liability company with its principal place of business in Winter Park, Florida, is committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website, use our services, or otherwise interact with us.
 
 This policy applies to all individuals who access our website, use our services, or provide us with personal information in any capacity, including but not limited to clients, prospective clients, business partners, and website visitors.
 
@@ -122,7 +122,7 @@ For more information about our use of cookies, please contact us.`
     title: "10. Contact Us",
     content: `If you have questions about this Privacy Policy or our data practices, please contact us at:
 
-**Quanti Capital Corp.**
+**Quanti Capital LLC**
 Winter Park, Florida
 United States
 Email: privacy@quanticapital.com

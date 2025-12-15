@@ -94,7 +94,7 @@ export function CommodityTicker() {
 export function QuantiLogo({ dark = false, className = "h-10 sm:h-14" }) {
   return (
     <img 
-      src="/Quantism.svg" 
+      src="/QUANTII.svg" 
       alt="Quanti Capital" 
       className={`w-auto ${className}`}
       style={dark ? { filter: 'brightness(0) saturate(100%)' } : {}}
@@ -280,10 +280,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 sm:pt-10 border-t border-white/[0.06] flex flex-col items-center gap-3 sm:gap-4 text-center">
           <p className="text-white/40 text-xs sm:text-sm">
-            © {new Date().getFullYear()} Quanti Capital Corp. All rights reserved.
+            © {new Date().getFullYear()} Quanti Capital LLC. All rights reserved.
           </p>
           <p className="text-white/30 text-[10px] sm:text-xs">
-            A Florida Corporation · Winter Park, FL
+            A Florida Limited Liability Company · Winter Park, FL
           </p>
         </div>
       </div>
@@ -291,46 +291,14 @@ export function Footer() {
   );
 }
 
-// Gradient Orbs Background Component with parallax scroll effect
+// Gradient Orbs Background Component with enhanced effects
 export function GradientOrbs() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Slow moving orb - moves at 0.05x scroll speed */}
-      <div 
-        className="absolute top-1/4 left-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] bg-gradient-radial from-white/[0.03] to-transparent rounded-full blur-[100px] sm:blur-[150px] animate-pulse-slow"
-        style={{ transform: `translateY(${scrollY * 0.05}px)` }}
-      />
-      {/* Medium speed orb - moves at 0.1x scroll speed, opposite direction */}
-      <div 
-        className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] bg-gradient-radial from-white/[0.025] to-transparent rounded-full blur-[80px] sm:blur-[130px] animate-pulse-slow"
-        style={{ transform: `translateY(${scrollY * -0.08}px)`, animationDelay: '2s' }}
-      />
-      {/* Center orb - subtle horizontal drift */}
-      <div 
-        className="absolute top-1/2 left-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] md:w-[900px] md:h-[900px] bg-gradient-to-br from-white/[0.015] via-transparent to-white/[0.01] rounded-full blur-[120px] sm:blur-[180px]"
-        style={{ transform: `translate(calc(-50% + ${scrollY * 0.02}px), calc(-50% + ${scrollY * 0.03}px))` }}
-      />
-      {/* Fast moving accent orb - moves at 0.15x scroll speed */}
-      <div 
-        className="absolute top-0 right-1/3 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] bg-gradient-radial from-emerald-500/[0.02] to-transparent rounded-full blur-[60px] sm:blur-[100px] animate-pulse-slow"
-        style={{ transform: `translateY(${scrollY * 0.12}px)`, animationDelay: '3s' }}
-      />
-      {/* New: Deep background orb - very slow, creates depth */}
-      <div 
-        className="absolute -bottom-[20%] left-1/3 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[800px] md:h-[800px] bg-gradient-radial from-white/[0.02] to-transparent rounded-full blur-[120px] sm:blur-[200px]"
-        style={{ transform: `translateY(${scrollY * -0.03}px)` }}
-      />
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] bg-gradient-radial from-white/[0.03] to-transparent rounded-full blur-[100px] sm:blur-[150px] animate-pulse-slow"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] bg-gradient-radial from-white/[0.025] to-transparent rounded-full blur-[80px] sm:blur-[130px] animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] md:w-[900px] md:h-[900px] bg-gradient-to-br from-white/[0.015] via-transparent to-white/[0.01] rounded-full blur-[120px] sm:blur-[180px]"></div>
+      <div className="absolute top-0 right-1/3 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] bg-gradient-radial from-emerald-500/[0.02] to-transparent rounded-full blur-[60px] sm:blur-[100px] animate-pulse-slow" style={{ animationDelay: '3s' }}></div>
     </div>
   );
 }
