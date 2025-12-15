@@ -280,10 +280,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 sm:pt-10 border-t border-white/[0.06] flex flex-col items-center gap-3 sm:gap-4 text-center">
           <p className="text-white/40 text-xs sm:text-sm">
-            © {new Date().getFullYear()} Quanti Capital LLC. All rights reserved.
+            © {new Date().getFullYear()} Quanti Capital Corp. All rights reserved.
           </p>
           <p className="text-white/30 text-[10px] sm:text-xs">
-            A Florida Limited Liability Company · Winter Park, FL
+            A Florida Corporation · Winter Park, FL
           </p>
         </div>
       </div>
