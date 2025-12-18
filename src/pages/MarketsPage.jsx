@@ -5,8 +5,9 @@ import { GlassCard, PageHeader, Footer, CTASection, GradientOrbs } from '../comp
 const continents = [
   {
     name: "North America",
-    description: "Serving major industrial consumers, OEMs, and commodity traders across the United States, Canada, and Mexico with reliable supply chain solutions.",
-    icon: Building
+    description: "Our primary market focus. Serving major industrial consumers, OEMs, and commodity traders across the United States, Canada, and Mexico with reliable supply chain solutions.",
+    icon: Building,
+    highlight: true
   },
   {
     name: "South America",
@@ -20,13 +21,13 @@ const continents = [
   },
   {
     name: "Africa",
-    description: "Deep relationships across the DRC, Zambia, South Africa, and other resource-rich nations with critical mineral deposits including cobalt and rare earths.",
+    description: "Secondary market focus with strategic relationships in Angola, Zambia, and South Africa for critical mineral sourcing and logistics operations.",
     icon: MapPin,
-    highlight: true
+    secondary: true
   },
   {
     name: "Asia",
-    description: "Connecting with refiners, processors, and end-users across China, Japan, South Korea, and Southeast Asia to complete global supply chains.",
+    description: "Connecting with refiners, processors, and end-users across Japan, South Korea, and Southeast Asia to complete global supply chains.",
     icon: TrendingUp
   }
 ];
@@ -78,16 +79,19 @@ export default function MarketsPage() {
                   <GlassCard 
                     key={continent.name}
                     glow
-                    className={`p-8 ${continent.highlight ? 'border-emerald-500/20' : ''}`}
+                    className={`p-8 ${continent.highlight ? 'border-emerald-500/20' : continent.secondary ? 'border-amber-500/20' : ''}`}
                   >
                     <div className="flex items-start gap-4 mb-4">
-                      <div className={`w-12 h-12 rounded-xl ${continent.highlight ? 'bg-emerald-500/10 border-emerald-500/20' : 'bg-white/5 border-white/10'} border flex items-center justify-center flex-shrink-0`}>
-                        <Icon className={`w-6 h-6 ${continent.highlight ? 'text-emerald-400' : 'text-white/60'}`} />
+                      <div className={`w-12 h-12 rounded-xl ${continent.highlight ? 'bg-emerald-500/10 border-emerald-500/20' : continent.secondary ? 'bg-amber-500/10 border-amber-500/20' : 'bg-white/5 border-white/10'} border flex items-center justify-center flex-shrink-0`}>
+                        <Icon className={`w-6 h-6 ${continent.highlight ? 'text-emerald-400' : continent.secondary ? 'text-amber-400' : 'text-white/60'}`} />
                       </div>
                       <div>
                         <h3 className="text-xl font-semibold text-white">{continent.name}</h3>
                         {continent.highlight && (
                           <span className="text-xs text-emerald-400 font-medium">Primary Focus</span>
+                        )}
+                        {continent.secondary && (
+                          <span className="text-xs text-amber-400 font-medium">Secondary Focus</span>
                         )}
                       </div>
                     </div>
@@ -99,27 +103,27 @@ export default function MarketsPage() {
           </div>
         </section>
 
-        {/* Africa Focus */}
+        {/* Africa Secondary Focus */}
         <section className="py-24 px-6 border-t border-white/[0.05]">
           <div className="max-w-4xl mx-auto">
-            <GlassCard glow className="p-8 md:p-12 border-emerald-500/20">
+            <GlassCard glow className="p-8 md:p-12 border-amber-500/20">
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border border-emerald-500/20 flex items-center justify-center">
-                    <Globe className="w-8 h-8 text-emerald-400" />
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 border border-amber-500/20 flex items-center justify-center">
+                    <Globe className="w-8 h-8 text-amber-400" />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Why Africa?</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">African Operations (Secondary Focus)</h3>
                   <p className="text-white/40 leading-relaxed mb-6">
-                    Africa holds approximately 30% of the world's mineral reserves and is home to vast deposits of 
-                    cobalt, rare earth elements, lithium, and other critical materials essential for the energy transition. 
-                    Our deep relationships and on-the-ground presence enable responsible sourcing from friendly jurisdictions.
+                    We maintain strategic relationships in Angola, Zambia, and South Africa to complement our primary 
+                    North American operations. These partnerships provide access to critical minerals including copper, 
+                    cobalt, and platinum group metals from stable, friendly jurisdictions.
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    {["Cobalt - 70%", "Rare Earths", "Lithium", "Copper", "Graphite"].map((item) => (
-                      <div key={item} className="px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
-                        <span className="text-sm text-emerald-400/80 font-medium">{item}</span>
+                    {["Angola", "Zambia", "South Africa"].map((item) => (
+                      <div key={item} className="px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full">
+                        <span className="text-sm text-amber-400/80 font-medium">{item}</span>
                       </div>
                     ))}
                   </div>

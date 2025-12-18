@@ -90,13 +90,13 @@ export function CommodityTicker() {
   );
 }
 
-// Quanti Logo Component - using official SVG logo
-export function QuantiLogo({ dark = false, className = "h-10 sm:h-14" }) {
+// Quanti Logo Component - using Option A logo
+export function QuantiLogo({ dark = false, className = "h-96 sm:h-[28rem]" }) {
   return (
     <img 
-      src="/QUANTII.svg" 
+      src="/Option A.png" 
       alt="Quanti Capital" 
-      className={`w-auto ${className}`}
+      className={`w-auto ${className} object-contain`}
       style={dark ? { filter: 'brightness(0) saturate(100%)' } : {}}
     />
   );

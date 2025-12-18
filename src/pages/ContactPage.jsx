@@ -186,8 +186,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="text-sm sm:text-base font-semibold text-white mb-1 sm:mb-2">Email</h3>
-                      <a href="mailto:contact@quanticapital.com" className="text-white/50 text-xs sm:text-sm hover:text-white/70 transition-colors">
-                        contact@quanticapital.com
+                      <a href="mailto:info@quanticapital.org" className="text-white/50 text-xs sm:text-sm hover:text-white/70 transition-colors">
+                        info@quanticapital.org
                       </a>
                     </div>
                   </div>
