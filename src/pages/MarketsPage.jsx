@@ -3,33 +3,33 @@ import { MapPin, Globe, Building, Users, Truck, TrendingUp } from 'lucide-react'
 import { GlassCard, PageHeader, Footer, CTASection, GradientOrbs } from '../components/shared';
 
 const continents = [
-  {
-    name: "North America",
-    description: "Our focus is to suport the United States for all of their sourcing needs. We serve our government, major industrial consumers, and OEM's. Our aim is to help diverify their supply risk and support our country in the supply chain.",
-    icon: Building,
-    highlight: true
-  },
-  {
-    name: "South America",
-    description: "Partnering with mining operations and producers across Ecuador, Chile, and Argentina—key sources of copper, lithium, and other essential materials.",
-    icon: Globe
-  },
-  {
-    name: "Europe",
-    description: "Supporting European manufacturers with compliant supply chains and regulatory expertise for critical materials sourcing.",
-    icon: Users
-  },
-  {
-    name: "Africa",
-    description: "Quanti Africa Ventures Limited focuses on developing strategic relationships in Africa. Our goal is to help lift communities in Angola, Zambia, and South Africa by creating jobs, and investing in the people of the Copperbelt.",
-    icon: MapPin,
-    secondary: true
-  },
-  {
-    name: "Asia",
-    description: "Connecting with refiners, processors, and end-users across Japan, South Korea, and Southeast Asia to complete global supply chains.",
-    icon: TrendingUp
-  }
+ {
+  name: "North America",
+  description: "Supporting U.S. national security and economic interests through reliable critical material sourcing. We serve federal agencies, defense contractors, and domestic manufacturers to reduce dependency on foreign supply chains and strengthen North American production capabilities under USMCA partnerships.",
+  icon: Building,
+  highlight: true
+},
+{
+  name: "Middle East",
+  description: "Leveraging strategic U.S.-UAE partnerships and Abraham Accords momentum to develop secure critical material supply chains. Supporting Gulf allies' economic diversification goals while ensuring stable resource access for American industries.",
+  icon: Globe
+},
+{
+  name: "Europe",
+  description: "Aligning with NATO allies and EU partners to build resilient Western supply chains. Supporting the U.S.-EU Trade and Technology Council initiatives on critical materials while helping European manufacturers meet both EU and U.S. regulatory standards.",
+  icon: Users
+},
+{
+  name: "Africa",
+  description: "Quanti Africa Ventures Limited advances U.S. interests through the Lobito Corridor initiative and Partnership for Global Infrastructure. Creating sustainable economic opportunities in Angola, Zambia, and South Africa while developing ethical alternatives to Chinese-dominated mineral extraction in the Copperbelt.",
+  icon: MapPin,
+  secondary: true
+},
+{
+  name: "Asia",
+  description: "Strengthening Indo-Pacific partnerships through the Minerals Security Partnership (MSP) with Japan, South Korea, and ASEAN allies. Building supply chain resilience that supports the CHIPS Act goals and reduces regional dependence on adversarial sources.",
+  icon: TrendingUp
+}
 ];
 
 export default function MarketsPage() {
@@ -40,7 +40,7 @@ export default function MarketsPage() {
       <div className="relative">
         <PageHeader 
           eyebrow="Global Markets"
-          title="5 Continents"
+          title="4 Continents"
           subtitle="We are a global operation connecting producers with consumers across every major market."
           backLink="/divisions"
           backLabel="Back to Divisions"
@@ -54,7 +54,7 @@ export default function MarketsPage() {
                 Global Reach, Local Expertise
               </h2>
               <p className="text-white/60 text-lg leading-relaxed">
-                Our network spans five continents, giving us unique insight into regional market dynamics, 
+                Our network spans four continents, giving us unique insight into regional market dynamics, 
                 regulatory environments, and supply chain challenges. We leverage this global footprint to 
                 create efficient, compliant trading relationships.
               </p>
