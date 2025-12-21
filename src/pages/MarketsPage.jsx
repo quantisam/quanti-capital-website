@@ -5,13 +5,13 @@ import { GlassCard, PageHeader, Footer, CTASection, GradientOrbs } from '../comp
 const continents = [
   {
     name: "North America",
-    description: "Our primary market focus. Serving major industrial consumers, OEMs, and commodity traders across the United States, Canada, and Mexico with reliable supply chain solutions.",
+    description: "Our focus is to suport the United States for all of their sourcing needs. We serve our government, major industrial consumers, and OEM's. Our aim is to help diverify their supply risk and support our country in the supply chain.",
     icon: Building,
     highlight: true
   },
   {
     name: "South America",
-    description: "Partnering with mining operations and producers across Chile, Peru, Brazil, and Argentina—key sources of copper, lithium, and other essential materials.",
+    description: "Partnering with mining operations and producers across Ecuador, Chile, and Argentina—key sources of copper, lithium, and other essential materials.",
     icon: Globe
   },
   {
@@ -21,7 +21,7 @@ const continents = [
   },
   {
     name: "Africa",
-    description: "Secondary market focus with strategic relationships in Angola, Zambia, and South Africa for critical mineral sourcing and logistics operations.",
+    description: "Quanti Africa Ventures Limited focuses on developing strategic relationships in Africa. Our goal is to help lift communities in Angola, Zambia, and South Africa by creating jobs, and investing in the people of the Copperbelt.",
     icon: MapPin,
     secondary: true
   },
@@ -41,7 +41,7 @@ export default function MarketsPage() {
         <PageHeader 
           eyebrow="Global Markets"
           title="5 Continents"
-          subtitle="A truly global operation connecting producers with consumers across every major market."
+          subtitle="We are a global operation connecting producers with consumers across every major market."
           backLink="/divisions"
           backLabel="Back to Divisions"
         />
@@ -100,36 +100,6 @@ export default function MarketsPage() {
                 );
               })}
             </div>
-          </div>
-        </section>
-
-        {/* Africa Secondary Focus */}
-        <section className="py-24 px-6 border-t border-white/[0.05]">
-          <div className="max-w-4xl mx-auto">
-            <GlassCard glow className="p-8 md:p-12 border-amber-500/20">
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 border border-amber-500/20 flex items-center justify-center">
-                    <Globe className="w-8 h-8 text-amber-400" />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-4">African Operations (Secondary Focus)</h3>
-                  <p className="text-white/40 leading-relaxed mb-6">
-                    We maintain strategic relationships in Angola, Zambia, and South Africa to complement our primary 
-                    North American operations. These partnerships provide access to critical minerals including copper, 
-                    cobalt, and platinum group metals from stable, friendly jurisdictions.
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    {["Angola", "Zambia", "South Africa"].map((item) => (
-                      <div key={item} className="px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full">
-                        <span className="text-sm text-amber-400/80 font-medium">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </GlassCard>
           </div>
         </section>
 
