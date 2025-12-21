@@ -96,7 +96,7 @@ export function QuantiLogo({ dark = false, className = "h-96 sm:h-[28rem]" }) {
     <img 
       src="/Option A.svg" 
       alt="Quanti Capital" 
-      className={`w-auto ${className} object-contain`}
+      className= {`w-auto ${className} object-contain`}
       style={dark ? { filter: 'brightness(0) saturate(100%)' } : {}}
     />
   );
