@@ -91,7 +91,7 @@ export function CommodityTicker() {
 }
 
 // Quanti Logo Component - using Option A logo
-export function QuantiLogo({ dark = false, className = "h-120 sm:h-[40rem]" }) {
+export function QuantiLogo({ dark = false, className = "h-96 sm:h-[28rem]" }) {
   return (
     <img 
       src="/Option A.svg" 
