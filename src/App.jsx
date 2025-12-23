@@ -9,14 +9,11 @@ import { ArrowRight, ArrowUpRight, Link, Truck, BarChart3, MapPin, Sparkles } fr
 // Quanti Logo Component
 const QuantiLogo = ({ showText = true }) => (
   <div className="flex items-center gap-3">
-    <div className="relative w-9 h-9 rounded-full bg-white flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-      <svg className="w-4 h-4 text-black" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="4" y1="8" x2="36" y2="8" stroke="currentColor" strokeWidth="2.5"/>
-        <line x1="4" y1="16" x2="36" y2="16" stroke="currentColor" strokeWidth="2.5"/>
-        <line x1="4" y1="8" x2="36" y2="16" stroke="currentColor" strokeWidth="2.5"/>
-        <line x1="36" y1="8" x2="4" y2="16" stroke="currentColor" strokeWidth="2.5"/>
-      </svg>
-    </div>
+    <img
+      src="/Option%20A%20Transparent.svg"
+      alt="Quanti Capital"
+      className="w-28 h-28 object-contain"
+    />
     {showText && (
       <span className="text-white font-semibold text-lg tracking-wide">
         QUANTI

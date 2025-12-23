@@ -90,11 +90,11 @@ export function CommodityTicker() {
   );
 }
 
-// Quanti Logo Component - using Option A logo
+// Quanti Logo Component
 export function QuantiLogo({ dark = false, className = "h-96 sm:h-[28rem]" }) {
   return (
     <img 
-      src="/Option A.svg" 
+      src="/Option%20A%20Transparent.svg" 
       alt="Quanti Capital" 
       className= {`w-auto ${className} object-contain`}
       style={dark ? { filter: 'brightness(0) saturate(100%)' } : {}}
@@ -123,7 +123,7 @@ export function Header({ variant = 'dark' }) {
         <div className="max-w-6xl mx-auto w-full">
           <nav className="flex items-center justify-between">
             <RouterLink to="/" onClick={() => setMobileMenuOpen(false)}>
-              <QuantiLogo dark={!isDark} className="h-10 sm:h-14" />
+              <QuantiLogo dark={!isDark} className="h-24 sm:h-36" />
             </RouterLink>
             
             {/* Desktop Navigation */}
@@ -237,7 +237,7 @@ export function Footer() {
         {/* Main Footer Content */}
         <div className="flex flex-col items-center gap-10 sm:gap-12 mb-12 sm:mb-16">
           <div className="flex flex-col items-center gap-4 text-center">
-            <QuantiLogo className="h-12 sm:h-14" />
+            <QuantiLogo className="h-28 sm:h-40" />
             <p className="text-white/40 text-sm max-w-xs leading-relaxed">
               Integrating global resources. Connecting mines to manufacturers.
             </p>
