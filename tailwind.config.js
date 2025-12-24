@@ -11,6 +11,7 @@ export default {
         // Brand accents (from Option A Transparent logo)
         brand: {
           gold: '#FAD961',
+          emblem: '#F9A23F',
           orange: '#F76B1C',
         },
         // Core Dark Theme
