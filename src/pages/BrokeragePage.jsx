@@ -48,7 +48,7 @@ const capabilities = [
   },
   {
     title: "Private Sector Integration",
-    description: "Connecting mines directly with OEMs, refiners, magnet makers, and manufacturers who need materials for actual production—not just government stockpiles."
+    description: "Connecting mines directly with OEMs, refiners, and manufacturers who need materials for production in addition to government stockpiles."
   },
   {
     title: "Compliant Partnerships",
@@ -125,7 +125,7 @@ export default function BrokeragePage() {
         </section>
 
         <CTASection 
-          title="Ready to Discuss Your Offtake?"
+          title="Ready to Discuss Offtake?"
           subtitle="Connect with our brokerage team to explore partnership opportunities."
           buttonText="Get in Touch"
         />
