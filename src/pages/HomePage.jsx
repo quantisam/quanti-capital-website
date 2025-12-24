@@ -116,7 +116,7 @@ export const HeroSection = () => {
             Critical Materials.
           </span>
           <br />
-          <span className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-brand-gold via-brand-gold to-brand-orange bg-clip-text text-transparent">
             Global Reach.
           </span>
         </h1>
@@ -161,7 +161,7 @@ export const StatsSection = () => (
           <p className="text-white/50 text-sm sm:text-base">Brokerage, Logistics, Hedging, Markets</p>
         </GlassCard>
         <GlassCard className="p-6 sm:p-8 md:p-10 text-center" glow>
-          <p className="text-white/50 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-3 sm:mb-5">GLOBAL REACH</p>
+          <p className="bg-gradient-to-r from-brand-gold to-brand-orange bg-clip-text text-transparent text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-3 sm:mb-5">GLOBAL REACH</p>
           <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-4">5 Continents</h3>
           <p className="text-white/50 text-sm sm:text-base">Connecting mines to manufacturers worldwide</p>
         </GlassCard>

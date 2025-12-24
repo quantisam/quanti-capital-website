@@ -8,6 +8,11 @@ export default {
     extend: {
       // Quanti Capital Dark Theme Color System (from Figma)
       colors: {
+        // Brand accents (from Option A Transparent logo)
+        brand: {
+          gold: '#FAD961',
+          orange: '#F76B1C',
+        },
         // Core Dark Theme
         dark: {
           bg: '#0A0A0A',           // Main background (rgb 0.039)
