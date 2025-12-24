@@ -23,7 +23,7 @@ const divisions = [
   {
     name: "Hedging",
     tagline: "Risk management solutions",
-    description: "Managing price volatility through licensed FCM partnerships, offering programs for both sellers (revenue stability) and buyers (budget certainty).",
+    description: "Managing price volatility through licensed FCM partnerships.",
     icon: BarChart3,
     href: "/hedging",
     features: ["Price Protection", "Volatility Management", "FCM Partnerships"]
