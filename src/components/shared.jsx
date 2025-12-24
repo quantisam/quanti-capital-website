@@ -123,7 +123,7 @@ export function Header({ variant = 'dark' }) {
         <div className="max-w-6xl mx-auto w-full">
           <nav className="flex items-center justify-between">
             <RouterLink to="/" onClick={() => setMobileMenuOpen(false)}>
-              <QuantiLogo dark={!isDark} className="h-16 sm:h-24" />
+              <QuantiLogo dark={!isDark} className="h-[4.5rem] sm:h-[6.5rem]" />
             </RouterLink>
             
             {/* Desktop Navigation */}
